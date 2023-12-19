@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisangUni</title>
+    <!-- <link href="css/join.css" type="text/css" rel="stylesheet"> -->
+</head>
+
+<body>
+<!-- 고정 -->
+<div class="mainheader">
+    <div class="header">
+        <div class="logo">
+            <a href="main.html"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+    </div>
+</div>
+<!-- 고정 -->
+
+<!-- 로그인 영역 -->
+<div class="container">
+    <div id="wrap">
+        <form th:method="post" th:action="|@{/{loginType}/join (loginType=${loginType})}|"
+              th:object="${joinRequest}">
+            <table>
+                <tr>
+                    <td><label th:for="userdataNum">학번 : </label></td>
+                    <td>
+                        <input type="text" th:field="*{userdataNum}" th:errorclass="error-input" />
+                        <div class="error-class" th:errors="*{userdataNum}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label th:for="userdataName">이름 : </label></td>
+                    <td>
+                        <input type="text" th:field="*{userdataName}" th:errorclass="error-input" />
+                        <div class="error-class" th:errors="*{userdataName}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label th:for="userPassword">비밀번호 : </label></td>
+                    <td>
+                        <input type="password" th:field="*{userPassword}" th:errorclass="error-input" />
+                        <div class="error-class" th:errors="*{userPassword}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label th:for="passwordCheck">비밀번호 확인 : </label></td>
+                    <td>
+                        <input type="password" th:field="*{passwordCheck}" th:errorclass="error-input" />
+                        <div class="error-class" th:errors="*{passwordCheck}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label th:for="userPhone">전화번호 : </label></td>
+                    <td>
+                        <input type="text" th:field="*{userPhone}" th:errorclass="error-input" />
+                        <div class="error-class" th:errors="*{userPhone}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>전공: </td>
+                    <td>
+                        <select name="userMajor" id="userMajor" th:for="userMajor">
+                            <option value="컴퓨터공학과">컴퓨터공학과</option>
+                            <option value="응용소프트웨어공학과">응용소프트웨어공학과</option>
+                            <option value="디자인조형학과">디자인조형학과</option>
+                            <option value="인공지능학과">인공지능학과</option>
+                            <option value="법학과">법학과</option>
+                            <option value="체육교육과">체육교육과</option>
+                            <option value="간호학과">간호학과</option>
+                        </select>
+                        <input type="hidden" th:field="*{userMajor}" />
+                    </td>
+                </tr>
+            </table>
+            <button type="submit">가입하기</button>
+        </form>
+    </div>
+</div>
+<script>
+    $("#userMajor").change(function () {
+        email();
+    });
+</script>
+</body>
+
+</html>
+<style>
+    .error-class {
+        color: red;
+    }
+
+    .error-input {
+        border-color: red;
+    }
+
+<!--    /* 헤더 감싸는 랩 */-->
+.header {
+    width: 604px;
+    height: 100px;
+    position: relative;
+    top: 150px;
+    border-bottom: 3px solid rgb(158, 214, 255);
+    margin: 0px auto;
+    text-align: center;
+}
+<!--/* 좌측 상단 로고 이미지 */-->
+.logo img  {
+    width: 200px;
+    height: 70px;
+    margin-top: 10px;
+    margin-left: -400px;
+}
+
+<!--/* 로그인 전체 감싸는 구역 */-->
+.container {
+    position: relative;
+    top: 150px;
+}
+<!--/* 폼 전체 감싸는 랩 */-->
+#wrap {
+    border: 2px solid #f3f3f3;
+    background-color: #eee;
+    width: 600px;
+    margin: 0px auto;
+    height: 340px;
+    text-align: center;
+}
+
+table{
+    width: 350px;
+    position: relative;
+    left: 125px;
+    top: 50px;
+}
+
+td{
+    width: 200px;
+    text-align: left;
+}
+
+<!--/* 폼만 감싸는 구역 */-->
+.input {
+    width: 250px;
+    height: 100px;
+    position: relative;
+    border: none;
+}
+
+select{
+    width: 206px;
+    height: 35px;
+    position: relative;
+    border: 1px solid #ccc;
+}
+<!--/* 아이디, 비밀번호 */-->
+input[type=text],[type=password]{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+
+a{
+    text-decoration : none;
+    color: black;
+}
+
+<!--/* 확인(전송) 버튼 */-->
+button[type=submit]{
+    margin: 0 auto;
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    background: rgb(158, 214, 255);
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    top: 120px;
+    cursor: pointer;
+}
+</style>

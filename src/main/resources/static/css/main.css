@@ -1,0 +1,98 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+body {
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+/* 이미지 슬라이드 부분(슬라이드 첫번째 이미지 위치 다시 잡기) */
+.bodywrap{
+    /* float:right; */
+    width:1000px;
+    height:400px;
+    position:relative;
+    top: 30px;
+    left: 440px;
+}
+.imgslide{
+    /* float:right; */
+    width:1000px;
+    height:400px;
+    position:relative;
+    overflow:hidden;
+}
+.slidelist{
+    width:3100px;
+}
+.slidelist img {
+    width:1000px;
+    height:400px;
+    border: 3px solid #ccc;
+    box-sizing: border-box;
+}
+.slidelist ul li{
+    float:left;
+    width:1000px;
+    list-style: none;
+    height:400px;
+}
+.slidelist ul li>a{
+    position:relative;
+}
+/* 추천 강의 부분 */
+.new_rec img {
+    width: 200px;
+    height: 140px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+}
+.new_rec {
+    width: 800px;
+    position: relative;
+    top: 50px;
+}
+.new_rec div:nth-child(3){
+    position: absolute;
+    left: 215px;
+    top: 43px;
+}
+.new_rec div:nth-child(4){
+    position: absolute;
+    top: 43px;
+    left: 430px;
+}
+/* 공지사항 부분 */
+.notice {
+    width: 300px;
+    float: right;
+    position: absolute;
+    top: 450px;
+    right: 10px;
+}
+.notice ul li {
+    position: relative;
+    left: -20px;
+}
+.notice ul li a {
+    text-decoration: none;
+    color: #000;
+}
+.notice ul li a:hover{
+    color: #436ae8;
+}
+.plus {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.4;
+}
+/* 푸터 위치 조정 */
+.footer {
+    left: 0;
+    top: 950px;
+}
+

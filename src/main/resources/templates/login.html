@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<!-- 고정 -->
+<div class="mainheader">
+    <div class="header">
+        <div class="logo">
+            <a href="main.html"><img src="/images/logo.png" alt="학교로고"></a>        </div>
+    </div>
+</div>
+<!-- 고정 -->
+
+<!-- 로그인 영역 -->
+<div class="container">
+    <div id="wrap">
+        <div class="input">
+            <form th:method="post" th:action="|@{/{loginType}/login (loginType=${loginType})}|"
+                  th:object="${loginRequest}">
+                <div>
+                    <input type="text" placeholder="학번을 입력해 주세요." th:field="*{userdataNum}" />
+                </div>
+                <div>
+                    <input type="password" placeholder="비밀번호를 입력해 주세요." th:field="*{userPassword}" />
+                </div>
+                <div th:if="${#fields.hasGlobalErrors()}">
+                    <div class="error-class" th:each="error : ${#fields.globalErrors()}" th:text="${error}" />
+                </div>
+                <button class="move" type="button" th:onclick="|location.href='@{/{loginType}/join (loginType=${loginType})}'|">회원 가입</button>
+                <button type="submit">로그인</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+<style>
+    .error-class {
+        color: red;
+    }
+
+    .error-input {
+        border-color: red;
+    }
+
+    .header {
+        width: 604px;
+        height: 100px;
+        position: relative;
+        top: 180px;
+        border-bottom: 3px solid rgb(158, 214, 255);
+        margin: 0px auto;
+        text-align: center;
+    }
+
+    .logo img {
+        width: 200px;
+        height: 70px;
+        margin-top: 10px;
+        margin-left: -400px;
+    }
+
+    .container {
+        position: relative;
+        top: 180px;
+    }
+
+    #text {
+        width: 150px;
+        height: 50px;
+        margin-top: 0px;
+    }
+
+    #wrap {
+        border: 2px solid #f3f3f3;
+        background-color: #f3f3f3;
+        width: 600px;
+        margin: 0px auto;
+        height: 220px;
+        text-align: center;
+    }
+
+    .text {
+        width: 200px;
+        height: 10px;
+        margin-top: 50px;
+    }
+
+    .input {
+        width: 500px;
+        height: 150px;
+        position: relative;
+        top: 10px;
+        border: none;
+    }
+
+    input[type=text],
+    [type=password] {
+        width: 250px;
+        height: 40px;
+        position: relative;
+        border: 1px solid #ccc;
+    }
+
+    input[type=text] {
+        left: 0;
+        top: 50px;
+    }
+
+    input[type=password] {
+        top: 53px;
+        left: 0px;
+    }
+
+    .move {
+        position: absolute;
+        top: 145px;
+        opacity: 0.6;
+        font-size: 13px;
+        font-weight: bold;
+        text-decoration: none;
+        left: 120px;
+        color: #000;
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    input[type=submit] {
+        width: 110px;
+        height: 90px;
+        background: rgb(158, 214, 255);
+        border: none;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-weight: bold;
+        position: absolute;
+        top: 50px;
+        right: 5px;
+    }
+
+    button[type=submit] {
+        width: 110px;
+        height: 90px;
+        background: rgb(158, 214, 255);
+        border: none;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-weight: bold;
+        position: absolute;
+        top: 50px;
+        right: 5px;
+        cursor: pointer;
+
+    }
+</style>
