@@ -1,9 +1,11 @@
 package com.example.school_lms.controller;
 
 import com.example.school_lms.Role.UserRole;
+import com.example.school_lms.Service.BoardService;
 import com.example.school_lms.Service.UserService;
 import com.example.school_lms.dto.JoinRequest;
 import com.example.school_lms.dto.LoginRequest;
+import com.example.school_lms.entity.Board;
 import com.example.school_lms.entity.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -14,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequiredArgsConstructor
@@ -21,7 +24,6 @@ import org.springframework.web.bind.annotation.*;
 public class SessionLoginController {
 
     private final UserService userService;
-
     @GetMapping(value = {"", "/"})
     public String mainUniversity(Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
         model.addAttribute("loginType", "visang_university");
@@ -163,4 +165,7 @@ public class SessionLoginController {
 //        }
 //        return lists;
 //    }
+
+    
+
 }

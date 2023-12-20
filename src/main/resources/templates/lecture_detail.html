@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VisangUni</title>
+    <link href="/css/base.css" type="text/css" rel="stylesheet">
+    <link href="/css/lec_dt.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!-- 헤더부분 -->
+<div class="header">
+    <div class="logo">
+        <a href="main.html"><img src="/images/logo.png" alt="학교로고">
+    </div>
+    <div class="header_text">
+        <div style="width: 150px;">
+                <span style="font-size: 23px;
+                color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
+            <a th:href="|@{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
+        </div>
+        <div>
+            <a href="#">나의 정보</a>
+        </div>
+        <div>
+            <a href="#">강의실</a>
+        </div>
+    </div>
+</div>
+<!-- 사이드 메뉴 -->
+<div class="side_wrap">
+    <div class="side_header">
+        <a>강의실</a>
+    </div>
+    <div class="side_middle">
+        <a>Home</a>
+        <ul><span>강의 정보</span>
+            <li>
+                <a href="#">수업계획서</a>
+            </li>
+
+            <li>
+                <a href="#">강의등록</a>
+            </li>
+        </ul>
+
+        <ul><span>수업 활동</span>
+            <li>
+                <a href="#">강의</a>
+            </li>
+
+            <li>
+                <a href="#">과제</a>
+            </li>
+        </ul>
+
+        <ul><span>커뮤니티</span>
+            <li>
+                <a href="#">공지사항</a>
+            </li>
+
+            <li>
+                <a href="#">Q&A</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="side_footer_f">
+        <a href="#">수강신청</a>
+    </div>
+
+    <div class="side_footer_l">
+        <a href="#">나의정보</a>
+    </div>
+</div>
+<!-- 강좌 바로가기 부분 -->
+<div class="lec_find">
+    <span>강좌바로가기</span>
+    <div class="dropdown">
+        <select>
+            <option value="1">2023년도 2학기</option>
+            <option value="2">2023년도 1학기</option>
+            <option value="3">2022년 2학기</option>
+            <option value="4">2022년도 1학기</option>
+        </select>
+
+        <select>
+            <option value="10">강좌명</option>
+            <option value="20">강좌1</option>
+            <option value="30">강좌2</option>
+            <option value="40">강좌3</option>
+        </select>
+    </div>
+</div>
+<!-- 상세 강의 내용 -->
+<div class="title_container">
+    <div><h3>온라인 강의</h3></div>
+    <div>
+        <img src="/images/home.png" alt="홈아이콘">
+    </div>
+    <div>
+        수업활동 >
+    </div>
+    <div>
+        온라인강의
+    </div>
+</div>
+
+<div class="container">
+    <div class="text_up">
+        <b>원격강의의 경우 강의 주제를 클릭하시면, 강의를 수강하실 수 있습니다.</b>
+        <a href="#"onclick="showPopup();"><span>출결 기준 안내 </span>  <img src="/images/qq.png" alt="물음표아이콘"></a><br>
+    </div>
+    <div class="text_down">
+        <b>※출석기간 내에 강의를 들으신 후 반드시 학습현황 메뉴에서 출석 여부를 확인하시기 바랍니다.</b>
+        <div class="lec_button"><a href="#">상세강의등록</a></div>
+    </div>
+    </div>
+
+    <!-- 수업형태&과제 버튼 형식으로 변경 필요함 -->
+    <table>
+        <thead>
+        <tr>
+            <th>주차</th>
+            <th>차시</th>
+            <th>강의주제</th>
+            <th>수업<br>형태</th>
+            <th>출결<br>상태</th>
+            <th>과제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>강의주제1</td>
+            <td>대면</td>
+            <td>출석</td>
+            <td>미출제</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1</td>
+            <td>강의주제2-1</td>
+            <td>온라인</td>
+            <td>결석</td>
+            <td>출제</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>1</td>
+            <td>강의주제3-1</td>
+            <td>온라인</td>
+            <td>미출석</td>
+            <td>출제</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2</td>
+            <td>강의주제3-2</td>
+            <td>온라인</td>
+            <td>미출석</td>
+            <td>출제</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <div class="footer_wrap" style="text-align: center;">
+            <div class="menu"><a href="#" onclick="javascript:window.open('/Account/UsingInfo', 'usinginfo', 'width=800, height=500, scrollbars=no'); Prevent();" title="이용약관">이용약관</a>&nbsp;|&nbsp;<a href="#" onclick="javascript:window.open('https://www.deu.ac.kr/www/content/61'); Prevent();" title="개인정보처리방침">개인정보처리방침</a></div>
+            <div class="address">47340 부산광역시 부산진구 엄광로 176 (교육혁신본부) / TEL. 051-111-2222</div>
+            <div class="copyright">COPYRIGHT 2017 BI-SANG UNIVERSITY. ALL RIGHT RESERVED.</div>
+        </div>
+    </div>
+
+    <!-- 출결기준안내 팝업 시작 -->
+    <script>
+        function showPopup() {
+            window.open("popup.html", "출결기준안내", "width=600, height=200, left=700, top=400");
+        }
+    </script>
+</body>
+</html>
