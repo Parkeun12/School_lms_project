@@ -1,10 +1,10 @@
-package com.example.testproject.controller;
+package com.example.school_lms.controller;
 
-import com.example.testproject.Role.UserRole;
-import com.example.testproject.Service.UserService;
-import com.example.testproject.dto.JoinRequest;
-import com.example.testproject.dto.LoginRequest;
-import com.example.testproject.entity.User;
+import com.example.school_lms.Role.UserRole;
+import com.example.school_lms.Service.UserService;
+import com.example.school_lms.dto.JoinRequest;
+import com.example.school_lms.dto.LoginRequest;
+import com.example.school_lms.entity.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;

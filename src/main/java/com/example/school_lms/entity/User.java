@@ -1,6 +1,6 @@
-package com.example.testproject.entity;
+package com.example.school_lms.entity;
 
-import com.example.testproject.Role.UserRole;
+import com.example.school_lms.Role.UserRole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

@@ -1,7 +1,8 @@
-package com.example.testproject.dto;
+package com.example.school_lms.dto;
 
-import com.example.testproject.Role.UserRole;
-import com.example.testproject.entity.User;
+
+import com.example.school_lms.Role.UserRole;
+import com.example.school_lms.entity.User;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

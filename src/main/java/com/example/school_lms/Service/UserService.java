@@ -1,11 +1,11 @@
-package com.example.testproject.Service;
+package com.example.school_lms.Service;
 
-import com.example.testproject.dto.JoinRequest;
-import com.example.testproject.dto.LoginRequest;
-import com.example.testproject.entity.User;
-import com.example.testproject.entity.Userdata;
-import com.example.testproject.repository.UserRepository;
-import com.example.testproject.repository.UserdataRepository;
+import com.example.school_lms.dto.JoinRequest;
+import com.example.school_lms.dto.LoginRequest;
+import com.example.school_lms.entity.User;
+import com.example.school_lms.entity.Userdata;
+import com.example.school_lms.repository.UserRepository;
+import com.example.school_lms.repository.UserdataRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

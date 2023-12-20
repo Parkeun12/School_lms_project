@@ -1,7 +1,7 @@
-package com.example.testproject.controller;
+package com.example.school_lms.controller;
 
-import com.example.testproject.Service.UserService;
-import com.example.testproject.entity.User;
+import com.example.school_lms.Service.UserService;
+import com.example.school_lms.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

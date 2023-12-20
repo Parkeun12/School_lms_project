@@ -1,6 +1,6 @@
-package com.example.testproject.repository;
+package com.example.school_lms.repository;
 
-import com.example.testproject.entity.User;
+import com.example.school_lms.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
