@@ -1,4 +1,4 @@
-package com.example.school_lms.Role;
+package com.example.testproject.Role;
 
 public enum UserRole {
     USER, ADMIN;

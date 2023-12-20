@@ -1,10 +1,10 @@
-package com.example.school_lms.controller;
+package com.example.testproject.controller;
 
-import com.example.school_lms.Role.UserRole;
-import com.example.school_lms.Service.UserService;
-import com.example.school_lms.dto.JoinRequest;
-import com.example.school_lms.dto.LoginRequest;
-import com.example.school_lms.entity.User;
+import com.example.testproject.Role.UserRole;
+import com.example.testproject.Service.UserService;
+import com.example.testproject.dto.JoinRequest;
+import com.example.testproject.dto.LoginRequest;
+import com.example.testproject.entity.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -14,6 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -132,6 +137,7 @@ public class SessionLoginController {
         return "info";
     }
 
+    //교수 admin으로 잡음
     @GetMapping("/admin")
     public String adminPage(@SessionAttribute(name = "userId", required = false) Long userId, Model model) {
         model.addAttribute("loginType", "session-login");

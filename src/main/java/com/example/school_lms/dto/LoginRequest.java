@@ -1,4 +1,4 @@
-package com.example.school_lms.dto;
+package com.example.testproject.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

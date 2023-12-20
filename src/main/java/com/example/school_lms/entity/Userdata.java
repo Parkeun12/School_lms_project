@@ -1,4 +1,4 @@
-package com.example.school_lms.entity;
+package com.example.testproject.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
