@@ -18,6 +18,11 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/visang_university")
@@ -134,6 +139,7 @@ public class SessionLoginController {
         return "info";
     }
 
+    //교수 admin으로 잡음
     @GetMapping("/admin")
     public String adminPage(@SessionAttribute(name = "userId", required = false) Long userId, Model model) {
         model.addAttribute("loginType", "session-login");
