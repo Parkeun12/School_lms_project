@@ -1,11 +1,11 @@
-package com.example.school_lms.Service;
+package com.example.testproject.Service;
 
-import com.example.school_lms.dto.JoinRequest;
-import com.example.school_lms.dto.LoginRequest;
-import com.example.school_lms.entity.User;
-import com.example.school_lms.entity.Userdata;
-import com.example.school_lms.repository.UserRepository;
-import com.example.school_lms.repository.UserdataRepository;
+import com.example.testproject.dto.JoinRequest;
+import com.example.testproject.dto.LoginRequest;
+import com.example.testproject.entity.User;
+import com.example.testproject.entity.Userdata;
+import com.example.testproject.repository.UserRepository;
+import com.example.testproject.repository.UserdataRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,6 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserdataRepository userdataRepository;
 
-    // Spring Security를 사용한 로그인 구현 시 사용
-    // private final BCryptPasswordEncoder encoder;
-
     /**
      * 학번과 이름 중복 체크
      * 회원가입 기능 구현 시 사용
@@ -32,12 +29,6 @@ public class UserService {
         Optional<Userdata> existingUserdata = userdataRepository.findByUserdataNumAndUserdataName(userdataNum, userdataName);
         return existingUserdata.isPresent();
     }
-
-    //교수학생 나누기 테스트코드2
-//    public boolean checkUserdataNumDuplicate(String userdataNum){
-//        Optional<Userdata> existUserdata = userdataRepository.findByUserdataNum(userdataNum);
-//        return existUserdata.isPresent();
-//    }
 
     /**
      * 회원가입 기능
@@ -54,17 +45,6 @@ public class UserService {
             throw new RuntimeException("이미 존재하는 학번과 이름입니다.");
         }
     }
-
-    //교수학생 나누기 테스트코드
-//    public void join(JoinRequest req) {
-//        // 학번과 이름 중복 체크
-//        if (checkUserdataDuplicate(req.getUserdataNum(), req.getUserdataName())) {  // 수정: getUserdataNum() -> getUserIdNum()
-//            if (checkUserdataNumDuplicate(req.getUserdataNum()));
-//                userRepository.save(req.toEntityUser());
-//        }else {
-//            throw new RuntimeException("이미 존재하는 학번과 이름입니다.");
-//        }
-//    }
 
     /**
      *  로그인 기능
@@ -117,5 +97,24 @@ public class UserService {
         if(optionalUser.isEmpty()) return null;
 
         return optionalUser.get();
+    }
+
+    public void updateUserInfo(Long userId, String userSns, String userPr) {
+        if (userId == null) {
+            // 로그인이 되어 있지 않으면 무시
+            return;
+        }
+
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            if (userSns != null) {
+                user.setUserSns(userSns);
+            }
+            if (userPr != null) {
+                user.setUserPr(userPr);
+            }
+            userRepository.save(user);
+        }
     }
 }
