@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <html xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VisangUni</title>
+    <link href="/css/base.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<div class="header">
+    <div class="logo">
+        <a href="main.html"><img src="/images/logo.png" alt="학교로고"></a>
+    </div>
+    <div class="header_text">
+        <div style="width: 150px;">
+                <span style="font-size: 23px;
+                color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
+            <a th:href="|/{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
+        </div>
+        <div>
+            <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
+        </div>
+        <div>
+            <a href="#">강의실</a>
+        </div>
+    </div>
+</div>
+<div class="side_wrap">
+    <div class="side_header">
+        <a>강의실</a>
+    </div>
+    <div class="side_middle">
+        <a>Home</a>
+        <ul><span>강의 정보</span>
+            <li>
+                <a href="#">수업계획서</a>
+            </li>
+
+            <li>
+                <a href="#">강의등록</a>
+            </li>
+        </ul>
+
+        <ul><span>수업 활동</span>
+            <li>
+                <a href="#">강의</a>
+            </li>
+
+            <li>
+                <a href="#">과제</a>
+            </li>
+        </ul>
+
+        <ul><span>커뮤니티</span>
+            <li>
+                <a href="#">공지사항</a>
+            </li>
+
+            <li>
+                <a href="#">Q&A</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="side_footer_f">
+        <a href="#">수강신청</a>
+    </div>
+
+    <div class="side_footer_l">
+        <a href="#">나의정보</a>
+    </div>
+
+    <!-- 나의정보 메인 중앙작업 -->
+    <div>
+        <div class="mypage_header">
+            <ul>
+                <li class="on">
+                    <div class="mypage_text">
+                        내정보
+                    </div>
+                </li>
+            </ul>
+            <form th:action="@{/visang_university/save}" method="post" th:object="${user}">
+                <ul>
+                    <li>기본정보</li>
+                    <table>
+                        <!-- 기본정보 테이블 -->
+                        <tr>
+                            <td class="table_one">구분</td>
+                            <td class="table_two"></td>
+                            <td class="table_one">전공</td>
+                            <td class="table_two" th:text="${user.userMajor}"></td>
+                        </tr>
+                        <tr>
+                            <td class="table_one">이름</td>
+                            <td class="table_two" th:text="${user.userdataName}"></td>
+                            <td class="table_one">아이디</td>
+                            <td class="table_two" th:text="${user.userdataNum}"></td>
+                        </tr>
+
+                    </table>
+                    <li class="profile">개인프로필</li>
+                    <table class="two_table">
+                        <tr>
+                            <td class="table_three">홈페이지(블로그)</td>
+                            <input type="hidden" th:field="${user.id}">
+                            <td class="table_four"><input type="text" class="blog_sns" th:field="*{userSns}"></td>
+                        </tr>
+                        <tr>
+                            <td class="table_five">자기소개</td>
+                            <td class="table_six"><textarea class="introduce" th:field="*{userPr}"></textarea></td>
+                        </tr>
+                    </table>
+                </ul>
+                <button type="submit" class="save_button">저장</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+        </html>
+
+<style>
+
+    .save_button{
+        margin: 0 auto;
+        position: relative;
+        top: 140px;
+        left: 400px;
+        width: 80px;
+        height: 35px;
+        border: none;
+        background-color: #4bb0c9;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .blog_sns{
+        width: 500px;
+        height: 18px;
+        border: 1px solid #8a8a8a;
+    }
+
+    .introduce{
+        width: 500px;
+        height: 115px;
+        border: 1px solid #8a8a8a;
+    }
+
+    .two_table{
+        position: relative;
+        top: 120px;
+    }
+
+    .table_three{
+        width: 230px;
+        height: 30px;
+        background-color: #f1f1f1;
+    }
+
+    .table_five{
+        width: 230px;
+        height: 130px;
+        background-color: #f1f1f1;
+    }
+
+
+    .profile{
+        position: relative;
+        top: 100px;
+    }
+
+    /* 기본정보 테이블 */
+    table{
+        border: 2px solid #cfcfcf;
+        border-collapse : collapse;
+
+        position: relative;
+        right: 20px;
+        top: 20px;
+        width: 760px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    td{
+        border: 2px solid #cfcfcf;
+        color: #4e4e4e;
+    }
+
+    .table_one{
+        width: 150px;
+        height: 30px;
+
+        background-color: #f1f1f1;
+    }
+
+    .table_two{
+        width: 230px;
+    }
+
+    /* 내정보헤더 */
+    .mypage_header {
+        position: relative;
+        left: 220px;
+        bottom: 607px;
+        width: 780px;
+        height: 40px;
+        border-top: 2px solid #dddddd;
+        border-bottom: 2px solid #dddddd;
+    }
+
+    .mypage_header ul .on {
+        width: 100px;
+        height: 40px;
+        position: relative;
+        right: 41px;
+        bottom: 17px;
+        list-style: none;
+        border: 1px solid #333333;
+        border-bottom: 2px solid #ffffff;
+    }
+
+    .mypage_header ul .on .mypage_text {
+        position: relative;
+        top: 12px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    ul li {
+        margin: 0;
+        padding: 0;
+    }
+</style></title>
+</head>
+<body>
+
+</body>
+</html>
