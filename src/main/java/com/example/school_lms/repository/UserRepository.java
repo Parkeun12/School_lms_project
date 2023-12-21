@@ -10,8 +10,4 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUserdataNum(String userdataNum);
-    @Query(value = "select char_length(userdata_num)" +
-            "from userdata;" +
-            "where userdata_num = :userdataNum", nativeQuery = true)
-    Optional<User> findByUserdataNum2(@Param("userdataNum") String userdataNum);
 }
