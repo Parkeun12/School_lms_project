@@ -18,10 +18,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,12 +25,18 @@ import java.util.Map;
 public class SessionLoginController {
 
     private final UserService userService;
+<<<<<<< HEAD
+=======
+
+//    메인페이지
+>>>>>>> main
     @GetMapping(value = {"", "/"})
     public String mainUniversity(Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
         model.addAttribute("loginType", "visang_university");
 
         User loginUser = userService.getLoginUserById(userId);
 
+        //로그인이 되어있으면 userdataName 뿌려주기
         if(loginUser != null) {
             model.addAttribute("userdataName", loginUser.getUserdataName());
         }
@@ -42,10 +44,10 @@ public class SessionLoginController {
         return "main";
     }
 
+//    회원가입 페이지
     @GetMapping("/join")
     public String joinPage(Model model) {
         model.addAttribute("loginType", "visang_university");
-//        model.addAttribute("pageName", "세션 로그인");
 
         model.addAttribute("joinRequest", new JoinRequest());
         return "join";
@@ -54,7 +56,6 @@ public class SessionLoginController {
     @PostMapping("/join")
     public String join(@Valid @ModelAttribute JoinRequest joinRequest, BindingResult bindingResult, Model model) {
         model.addAttribute("loginType", "visang_university");
-//        model.addAttribute("pageName", "세션 로그인");
 
         // 학번과 이름 중복 체크
         if(!userService.checkUserdataDuplicate(joinRequest.getUserdataNum(), joinRequest.getUserdataName())) {
@@ -74,10 +75,10 @@ public class SessionLoginController {
         return "redirect:/visang_university";
     }
 
+//    로그인 페이지
     @GetMapping("/login")
     public String loginPage(Model model) {
         model.addAttribute("loginType", "visang_university");
-//        model.addAttribute("pageName", "세션 로그인");
 
         model.addAttribute("loginRequest", new LoginRequest());
         return "login";
@@ -87,7 +88,6 @@ public class SessionLoginController {
     public String login(@ModelAttribute LoginRequest loginRequest, BindingResult bindingResult,
                         HttpServletRequest httpServletRequest, Model model) {
         model.addAttribute("loginType", "visang_university");
-//        model.addAttribute("pageName", "세션 로그인");
 
         User user = userService.login(loginRequest);
 
@@ -115,7 +115,6 @@ public class SessionLoginController {
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, Model model) {
         model.addAttribute("loginType", "visang_university");
-//        model.addAttribute("pageName", "세션 로그인");
 
         HttpSession session = request.getSession(false);  // Session이 없으면 null return
         if(session != null) {
@@ -123,6 +122,7 @@ public class SessionLoginController {
         }
         return "redirect:/visang_university";
     }
+<<<<<<< HEAD
 
     @GetMapping("/info")
     public String userInfo(@SessionAttribute(name = "userId", required = false) Long userId, Model model) {
@@ -174,4 +174,6 @@ public class SessionLoginController {
 
     
 
+=======
+>>>>>>> main
 }

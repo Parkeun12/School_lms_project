@@ -11,16 +11,16 @@
 <body>
 <div class="header">
     <div class="logo">
-        <a href="main.html"><img src="/images/logo.png" alt="학교로고"></a>
+        <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
     </div>
     <div class="header_text">
         <div style="width: 150px;">
                 <span style="font-size: 23px;
                 color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
-            <a th:href="|/{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
+            <a th:href="|@{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
         </div>
         <div>
-            <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
+            <a th:href="@{/visang_university/mypage}">나의 정보</a>
         </div>
         <div>
             <a href="#">강의실</a>
@@ -89,7 +89,7 @@
                         <!-- 기본정보 테이블 -->
                         <tr>
                             <td class="table_one">구분</td>
-                            <td class="table_two"></td>
+                            <td class="table_two" th:text="${user.role}"></td>
                             <td class="table_one">전공</td>
                             <td class="table_two" th:text="${user.userMajor}"></td>
                         </tr>
@@ -110,7 +110,7 @@
                         </tr>
                         <tr>
                             <td class="table_five">자기소개</td>
-                            <td class="table_six"><textarea class="introduce" th:field="*{userPr}"></textarea></td>
+                            <td class="table_six"><textarea class="introduce" th:field="*{userPr}" placeholder="최대 255자내로 작성하세요."></textarea></td>
                         </tr>
                     </table>
                 </ul>
