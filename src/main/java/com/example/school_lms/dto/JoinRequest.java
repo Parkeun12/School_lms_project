@@ -31,7 +31,7 @@ public class JoinRequest {
     // 비밀번호 암호화 X
     public User toEntityUser() {
 
-        UserRole userRole = (this.userdataNum.length() == 8) ? UserRole.USER : UserRole.ADMIN;
+        UserRole userRole = (this.userdataNum.length() == 8) ? UserRole.STUDENT : UserRole.PROFESSOR;
 
         return User.builder()
                 .userdataNum(this.userdataNum)
