@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/ProfessorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Service/TasksService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/TasksController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/Tasks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/homeworkNew.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Role/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Role/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/SessionLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/SessionLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/JoinRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/JoinRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/UserdataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/UserdataRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +39,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -59,14 +57,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;eunchae&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Desktop/Test22/School_lms_project/src/main/resources/templates&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "eunchae",
+    "last_opened_file_path": "C:/springprojects/2023-12-04 1차백업"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
