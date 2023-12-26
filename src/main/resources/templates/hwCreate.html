@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisangUni</title>
+    <link href="css/base.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="학교로고">
+        </div>
+        <div class="header_text">
+            <div>
+                <a href="#">로그인</a>
+            </div>
+            <div>
+                <a href="#">나의 정보</a>
+            </div>
+            <div>
+                <a href="#">강의실</a>
+            </div>
+        </div>
+    </div>
+    <div class="side_wrap">
+        <div class="side_header">
+            <a>강의실</a>
+        </div>
+        <div class="side_middle">
+            <a>Home</a>
+            <ul><span>강의 정보</span>
+                <li>
+                    <a href="#">수업계획서</a>
+                </li>
+
+                <li>
+                    <a href="#">강의등록</a>
+                </li>
+            </ul>
+
+            <ul><span>수업 활동</span>
+                <li>
+                    <a href="#">강의</a>
+                </li>
+
+                <li>
+                    <a href="#">과제</a>
+                </li>
+            </ul>
+
+            <ul><span>커뮤니티</span>
+                <li>
+                    <a href="#">공지사항</a>
+                </li>
+
+                <li>
+                    <a href="#">Q&A</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="side_footer_f">
+            <a href="#">수강신청</a>
+        </div>
+
+        <div class="side_footer_l">
+            <a href="#">나의정보</a>
+        </div>
+
+        <!-- 나의정보 메인 중앙작업 -->
+        <div class="homework_head">
+            <ul>
+                <li class="project_title">과제</li>
+
+                <table class="homework_table">
+                    <tr>
+                        <td>N주차 N차시</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>과제유형</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>제출기간</td>
+                        <td><input type="date">  <input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>제목</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>내용</td>
+                        <td><input type="text" class="introduce"></td>
+                    </tr>
+                    <tr>
+                        <td>첨부파일</td>
+                        <td><input type="file"></td>
+                    </tr>
+                </table>
+            </ul>
+            <button class="save_button">등록하기</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+
+    .homework_table{
+        position: relative;
+        top: 70px;
+    }
+    
+    .introduce {
+        width: 500px;
+        height: 115px;
+        border: 1px solid #8a8a8a;
+    }
+
+    .project_title {
+        font-size: 20px;
+        font-weight: bold;
+        position: relative;
+        top: 40px;
+    }
+
+    .save_button {
+        margin: 0 auto;
+        position: relative;
+        top: 100px;
+        left: 400px;
+        width: 80px;
+        height: 35px;
+        border: none;
+        background-color: #4bb0c9;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* 내정보헤더 */
+
+    .homework_head {
+        position: relative;
+        left: 220px;
+        bottom: 607px;
+        width: 780px;
+        height: 40px;
+    }
+
+    ul li {
+        margin: 0;
+        padding: 0;
+    }
+</style>
