@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="" />
+    <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Service/LectureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/LectureDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/regist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layouts/layout.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +40,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -48,14 +59,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "eunchae",
-    "last_opened_file_path": "C:/springprojects/lms_project_sum/src/main/resources/templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;eunchae&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/springprojects/2023-12-04 1차백업&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\springprojects\lms_project_sum\src\main\resources\templates" />
@@ -63,6 +74,12 @@
       <recent name="C:\springprojects\lms_project_sum\src\main\java\com\example\school_lms\entity" />
       <recent name="C:\springprojects\lms_project_sum\src\main\java\com\example\school_lms\dto" />
       <recent name="C:\springprojects\lms_project_sum\src\main\resources\static\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\Service" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\repository" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\dto" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.school_lms.entity" />
@@ -114,6 +131,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureDetailController.java</url>
           <line>57</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/SessionLoginController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
