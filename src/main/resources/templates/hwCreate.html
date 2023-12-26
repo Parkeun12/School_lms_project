@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisangUni</title>
-    <link href="css/base.css" type="text/css" rel="stylesheet">
+    <link href="/css/base.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
     <div class="header">
         <div class="logo">
-            <img src="images/logo.png" alt="학교로고">
+            <img src="/images/logo.png" alt="학교로고">
         </div>
         <div class="header_text">
             <div>
@@ -73,8 +73,7 @@
 
         <!-- 나의정보 메인 중앙작업 -->
         <div class="homework_head">
-            <form th:method="post" th:action="|@{/{loginType}/homework/new (loginType=${loginType})}|"
-                  th:object="${HomeworkForm}">
+            <form th:method="post" th:action="@{/homework/create}" th:object="${HomeworkForm}">
             <ul>
                 <li class="project_title">과제</li>
 
@@ -93,15 +92,15 @@
                     </tr>
                     <tr>
                         <td>제목</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" th:field="*{homeworkTitle}"></td>
                     </tr>
                     <tr>
                         <td>내용</td>
-                        <td><input type="text" class="introduce"></td>
+                        <td><input type="text" class="introduce" th:field="*{homeworkContent}"></td>
                     </tr>
                     <tr>
                         <td>첨부파일</td>
-                        <td><input type="file"></td>
+                        <td><input type="file" th:field="*{homeworkFile}"></td>
                     </tr>
                 </table>
             </ul>
