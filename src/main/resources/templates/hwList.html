@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisangUni</title>
+    <link href="css/base.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="학교로고">
+        </div>
+        <div class="header_text">
+            <div>
+                <a href="#">로그인</a>
+            </div>
+            <div>
+                <a href="#">나의 정보</a>
+            </div>
+            <div>
+                <a href="#">강의실</a>
+            </div>
+        </div>
+    </div>
+    <div class="side_wrap">
+        <div class="side_header">
+            <a>강의실</a>
+        </div>
+        <div class="side_middle">
+            <a>Home</a>
+            <ul><span>강의 정보</span>
+                <li>
+                    <a href="#">수업계획서</a>
+                </li>
+
+                <li>
+                    <a href="#">강의등록</a>
+                </li>
+            </ul>
+
+            <ul><span>수업 활동</span>
+                <li>
+                    <a href="#">강의</a>
+                </li>
+
+                <li>
+                    <a href="#">과제</a>
+                </li>
+            </ul>
+
+            <ul><span>커뮤니티</span>
+                <li>
+                    <a href="#">공지사항</a>
+                </li>
+
+                <li>
+                    <a href="#">Q&A</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="side_footer_f">
+            <a href="#">수강신청</a>
+        </div>
+
+        <div class="side_footer_l">
+            <a href="#">나의정보</a>
+        </div>
+
+        <!-- 나의정보 메인 중앙작업 -->
+        <div>
+            <div class="homework_head">
+                <ul>
+                    <li class="project_title">과제</li>
+                    <button class="save_button">등록하기</button>
+                    <form>
+                        <table border="1">
+                            <tr>
+                                <th name="num" class="one">
+                                    주차-차시
+                                </th>
+                                <th name="name" class="two">
+                                    과제유형
+                                </th>
+                                <th name="price" class="three">
+                                    과제제목
+                                </th>
+                                <th name="img" class="four">
+                                    제출기간
+                                </th>
+                                <th name="txt" class="five">
+                                    제출여부
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                                <td name="name">
+                                    <a href="/product/{{productNum}}">
+                                    
+                                    </a>
+                                </td>
+                                <td name="price">
+
+                                </td>
+                                <td name="img">
+                                    
+                                </td>
+                                <td name="txt">
+
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+
+    .one{
+     width: 40px;   
+    }
+
+    .two{
+        width: 100px;
+    }
+
+    .three{
+        width: 220px;
+    }
+
+    .four{
+        width: 270px;
+    }
+
+    th{
+        background-color: #e7e7e7;
+    }
+
+.project_title {
+        font-size: 20px;
+        font-weight: bold;
+        position: relative;
+        top: 30px;
+    }
+
+    .save_button{
+        margin: 0 auto;
+        position: relative;
+        left: 670px;
+        top: 10px;
+        width: 70px;
+        height: 30px;
+        border: none;
+        background-color: #929292;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .introduce{
+        width: 500px;
+        height: 115px;
+        border: 1px solid #8a8a8a;
+    }
+
+    /* 기본정보 테이블 */
+    table{
+        border: 2px solid #cfcfcf;
+        border-collapse : collapse;
+
+        position: relative;
+        right: 20px;
+        top: 20px;
+        width: 760px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    td{
+        border: 2px solid #cfcfcf;
+        color: #4e4e4e;
+    }
+
+    .homework_head {
+        position: relative;
+        left: 220px;
+        bottom: 607px;
+        width: 780px;
+        height: 40px;
+    }
+
+    ul li {
+        margin: 0;
+        padding: 0;
+    }
+</style>
