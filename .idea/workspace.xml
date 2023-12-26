@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Service/LectureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/LectureDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/regist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/HomeworkForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/HomeworkForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layouts/layout.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +77,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\Service" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\repository" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\dto" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.school_lms.entity" />
