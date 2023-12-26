@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VisangUni</title>
+    <link href="/css/base.css" type="text/css" rel="stylesheet" />
+    <link href="/css/classHomeAndDL.css" type="text/css" rel="stylesheet"/>
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <img src="/images/logo.png" alt="학교로고" />
+    </div>
+    <div class="header_text">
+        <div>
+            <a href="#">로그인</a>
+        </div>
+        <div>
+            <a href="#">나의 정보</a>
+        </div>
+        <div>
+            <a href="#">강의실</a>
+        </div>
+    </div>
+</div>
+<div class="side_wrap">
+    <div class="side_header">
+        <a>강의실</a>
+    </div>
+    <div class="side_middle">
+        <a>Home</a>
+        <ul>
+            <span>강의 정보</span>
+            <li>
+                <a href="#">수업계획서</a>
+            </li>
+
+            <li>
+                <a href="#">강의등록</a>
+            </li>
+        </ul>
+
+        <ul>
+            <span>수업 활동</span>
+            <li>
+                <a href="#">강의</a>
+            </li>
+
+            <li>
+                <a href="#">과제</a>
+            </li>
+        </ul>
+
+        <ul>
+            <span>커뮤니티</span>
+            <li>
+                <a href="#">공지사항</a>
+            </li>
+
+            <li>
+                <a href="#">Q&A</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="side_footer_f">
+        <a href="#">수강신청</a>
+    </div>
+
+    <div class="side_footer_l">
+        <a href="#">나의정보</a>
+    </div>
+</div>
+
+<!-- --------------------여기서부터 content--------------------- -->
+<div class="content">
+    <div class="lectureSelect">
+        <div id="box1">
+            강좌바로가기
+            <select style="width: 190px">
+                <!--여기부터 lecture테이블에서 연도와 학기 데이터 받아와서 반복 횟수만큼 옵션이 추가되어야 한다. -->
+                <option value="" selected>년도 학기</option>
+                <option value="">
+                    <span th:text>년도</span> <span> </span> <span th:text>학기</span>
+                </option>
+            </select>
+        </div>
+        <div id="box2">
+            <select style="width: 400px">
+                <!--여기부터 학기별 데이터가 들어와야 한다. lecture테이블에서 연도와 학기 데이터 받아와서 반복 횟수만큼 옵션이 추가되어야 한다. -->
+                <option value="" selected>강좌명</option>
+                <option value=""><span th:text></span></option>
+            </select>
+        </div>
+    </div>
+    <div class="pageTitle" style="width: 720px; height: 64px; display: flex">
+        <div style="width: 500px; height: 64px">
+            <div style="position: relative; top: 15px; left: 7px">
+                <h3>온라인강의</h3>
+            </div>
+        </div>
+        <div style="width: 20px; height: 64px">
+            <img
+                    id="houseicon"
+                    src="/images/houseicon.png"
+                    style="width: 16px; height: 16px; position: relative; top: 36px"
+            />
+        </div>
+        <div style="width: 200px; height: 64px">
+            <p style="position: relative; top: 18px">강의실메인>강의실Home</p>
+        </div>
+    </div>
+    <div>
+        <hr />
+    </div>
+    <div style="width: 720px; height: 56px">
+        <div style="width: 720px; height: 27px; display: flex">
+            <div class="redFont1">
+                ※원격강의의 경우 강의 주제를 클릭하시면, 강의를 수강하실 수
+                있습니다.
+            </div>
+
+            <a href="attCriteria.html"
+                onclick="window.open(this.href, '_blank', 'width=720, height=600'); return false"
+                class="redFont2">
+                <label for="attCriteria">
+                    출결 기준 안내
+                    <button id="attCriteria" class="question-btn">?</button>
+                </label>
+            </a>
+        </div>
+        <div style="width: 720px; height: 27px">
+            <div class="blueFont">
+                ※ 출석기간 내에 강의를 들으신 후 반드시 학습현황 메뉴에서 출석여부를
+                확인하시기 바랍니다.
+            </div>
+        </div>
+    </div>
+    <hr />
+    <table style="border: 1px solid; border-spacing: 0">
+        <tr>
+            <th>주차</th>
+            <!--주차-->
+            <th>차시</th>
+            <!--차시-->
+            <th style="width: 330px">강의주제</th>
+            <!--강의주제-->
+            <th style="width: 55px">수업형태</th>
+            <!--수업형태-->
+            <th style="width: 200px">수업기간</th>
+            <!--수업기간-->
+            <th style="width: 55px">출결상태</th>
+            <!--출결상태-->
+            <th style="width: 60px">과제</th>
+            <!--과제-->
+        </tr>
+        <tr>
+            <td></td>
+            <td class="tdno2"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="tdno7"></td>
+        </tr>
+    </table>
+</div>
+<!-- ---------------------여기까지 content---------------------- -->
+
+<!-- ---------------------여기부터 공지 & Q&A ------------------- -->
+<div class="additionalBox">
+    <div style="width: 330px">
+        <!--강의공지-->
+        <div>
+            최근 강의 공지
+            <hr>
+        </div>
+        <div>
+            <ul>
+                <li></li>
+                <!--이 위치에 공지 데이터-->
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div style="width: 60px"></div>
+    <!--빈공간-->
+    <div style="width: 330px">
+        <!--Q*A-->
+        <div>
+            최근 강의 Q&A
+            <hr>
+        </div>
+        <div>
+            <ul>
+                <li></li>
+                <!--이 위치에 Q&A데이터 -->
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ---------------------여기까지 공지 & Q&A ------------------- -->
+<div class="footer">
+    <div class="footer_wrap" style="text-align: center">
+        <div class="menu">
+            <a
+                    href="#"
+                    onclick="javascript:window.open('/Account/UsingInfo', 'usinginfo', 'width=800, height=500, scrollbars=no'); Prevent();"
+                    title="이용약관"
+            >이용약관</a
+            >&nbsp;|&nbsp;<a
+                href="#"
+                onclick="javascript:window.open('https://www.deu.ac.kr/www/content/61'); Prevent();"
+                title="개인정보처리방침"
+        >개인정보처리방침</a
+        >
+        </div>
+        <div class="address">
+            47340 부산광역시 부산진구 엄광로 176 (교육혁신본부) / TEL.
+            051-111-2222
+        </div>
+        <div class="copyright">
+            COPYRIGHT 2017 BI-SANG UNIVERSITY. ALL RIGHT RESERVED.
+        </div>
+    </div>
+</div>
+</body>
+</html>

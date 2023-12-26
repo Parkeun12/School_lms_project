@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/lecRegist.css" type="text/css" rel="stylesheet" th:href="@{/css/lecRegist.css}">
+</head>
+
+
+<div layout:fragment="content">
+    <div class="container">
+        <div th:object="${selectedLecture}" ><!-- div태그로 바꿔서 타임리프로 lecture 정보를 가져와야함.-->
+            <div>
+                <table id="tbl1" border="1">
+
+                    <tr>
+                        <th>교과목</th>
+                        <td>
+                            <div th:field="*{subject_name}"type="t></div>
+                        </td>
+                        <!-- 학과 이름은 교수로 부터 받아온다. -->
+                        <th>학과</th>
+                        <td>
+                            <p th:text="${use_major}"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>학점/시간</th>
+                        <td>
+                            <select>
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            학점
+                            <select>
+                                <option value="1" select>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                            시간
+                        </td>
+                        <th>이수구분</th>
+                        <td>
+                            <select>
+                                <option value="1" selected>일반</option>
+                                <option value="2">전공</option>
+                                <option value="3">교양</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>대상학년</th>
+                        <td>
+                            <select>
+                                <option value="1">1학년</option>
+                                <option value="2">2학년</option>
+                                <option value="3">3학년</option>
+                                <option value="4">4학년</option>
+                                <option value="5" selected>전체</option>
+                            </select>
+                        </td>
+                        <th>개설년도</th>
+                        <td>
+                            <select>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023" selected>2023</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- 담당교원 값은 받아온다. 연락처 이메일 포함-->
+                        <th>담당교원</th>
+                        <td th:text="${userName}"></td>
+                        <th>연락처 / 이메일</th>
+                        <td th:text="${userPhone}"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-detail">
+                <table id="tbl2" border="1px">
+                    <tr>
+                        <th>교과목 개요</th>
+                        <td>
+                            <input type="text" th:field="*{subjectOutline}" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>교과 교육목표</th>
+                        <td>
+                            <input type="text" th:field="*{subjectGoal}" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>강의실(시간)</th>
+                        <td>
+                            강의실 명 :
+                            <input type="text" th:field="*{subjectClass}" >
+                            <br>
+                            시간 :
+                            <select>
+                                <option value="1" selected>월요일</option>
+                                <option value="2">화요일</option>
+                                <option value="3">수요일</option>
+                                <option value="4">목요일</option>
+                                <option value="5">금요일</option>
+                                <option value="6">토요일</option>
+                                <option value="7">일요일</option>
+                            </select>
+                            교시 :
+                            <input type="text" th:field="*{subjectPeriod}" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>주교재</th>
+                        <td>
+                            <input  type="text" th:field="*{subjectBook}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>참고문헌 및 관련<br>
+                            인터넷 사이트
+                        </th>
+                        <td>
+                            <input type="text" th:field="*{subjectReference}">
+                        </td>
+
+                    </tr>
+
+                </table>
+            </div>
+            <div>
+                <table id="tbl3" border="1">
+                    <tr>
+                        <th>신청 시작일</th>
+                        <td>
+                            <input type="date" th:field="*{subjectReqStart}">
+                        </td>
+                        <th>신청 종료일</th>
+                        <td>
+                            <input type="date" th:field="*{subjectReqEnd}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>학기 시작일</th>
+                        <td>
+                            <input type="date" th:field="*{subjectOpStart}">
+                        </td>
+                        <th>학기 종료일</th>
+                        <td>
+                            <input type="date" th:field="*{subjectOpEnd}">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>수업 평가 방법</h2>
+
+            <div>
+                <table class="tbl4" border="1">
+                    <tr>
+                        <th>평가항목</th>
+                        <th>중간고사</th>
+                        <th>기말고사</th>
+                        <th>과 제</th>
+                        <th>팀Project</th>
+                        <th>출석</th>
+                    </tr>
+                    <tr>
+                        <th>비율</th>
+                        <td>
+                            <input type="text" th:field="*{testMidterm}">
+                        </td>
+                        <td>
+                            <input type="text" th:field="*{testFinal}">
+                        </td>
+                        <td>
+                            <input type="text" th:field="*{testProject}">
+                        </td>
+                        <td>
+                            <input type="text" th:field="*{testTeamPj}">
+                        </td>
+                        <td>
+                            <input type="text" th:field="*{testAttend}">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <button type="submit">강의등록</button>
+        </div>
+    </div>
+</div>
+
+
+</html>

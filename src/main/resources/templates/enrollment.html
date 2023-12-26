@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link th:href="@{/css/base.css}" type="text/css" href="/css/base.css" rel="stylesheet">
+    <link th:href="@{/css/enrollment.css}"  type="text/css" href="/css/enrollment.css" rel="stylesheet" >
+</head>
+<body>
+
+<div layout:fragment="content">
+<div class="wrap">
+    <div class="inner">
+
+        <!-- 검색 박스 시작 -->
+        <div class="search_box">
+            <div class="search_box_background">
+                <input id="search_box_input" type="text" placeholder="내용을 입력해주세요.">
+                <button id="search_box_button">검색</button>
+            </div>
+        </div>
+        <!-- 검색박스 종료 -->
+
+        <hr>
+
+        <!-- 신청가능 상태와 제목 및 날짜, 신청 버튼 시작 -->
+        <div th:each="lecture : ${lectureList}" class="content_wrap"> <!-- 리스트 정보를 불러왔을때 최근 연도 최근 학기인 경우의 정보만 보여줘야한다. js 기능 넣기 -->
+
+            <!-- 신청가능 상태를 나타내는 박스 -->
+            <div  class="first" >
+                <div id="first_app_available" >신청가능</div> <!--신청가능 버튼-->
+                <div id="first_title"><a th:href="@{/enroll/lecPlan/{Id}(Id=${lecture.subjectId})}"> <span th:text="${lecture.subjectName}"></span></a></div> <!-- 여기 수강과목 제목이 들어감. 신청가능 박스 옆에 <span th:text="${data}">데이터 받을 자리 표시-->
+                <div id="first_app_period">신청기간 : <span th:text="${lecture.subjectReqStart} + '~' + ${lecture.subjectReqEnd}"></span></div>
+                <div id="first_oper_period">운영기간 : <span th:text="${lecture.subjectOpStart} + '~' + ${lecture.subjectOpEnd}"></span></div>
+            </div>
+
+            <!-- 수강 버튼 시작 -->
+            <div class="second" >
+<!--                <form method="get" action="/enroll/apply/{subjectId}(subjectId=${lecture.subjectId})/{id}(id=${})">-->
+                    <form method="post" action="/enroll/apply">
+<!--        수강 버튼을 눌렀을 때 form에서는 필요한 데이터를 보내줘야하고 DB에 해당 값이 없으면 DB에 저장되어야 하며, 업데이트된 DB가 다시 화면에 보여져야 한다.          -->
+                <button class="second_appbtn">
+                    신청
+                </button>
+                </form>
+            </div>
+            <!-- 수강 버튼 종료 -->
+            <hr>
+
+        </div>
+        <!-- 신청가능 상태와 제목 및 날짜, 신청 버튼 종료 -->
+
+
+
+    </div>
+    <!-- 신청가능 상태와 제목 및 날짜, 신청 버튼 종료 -->
+    <hr>
+
+</div>
+</div>
+
+</body>
+</html>
