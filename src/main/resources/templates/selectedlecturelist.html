@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisangUni</title>
+    <link href="/css/base.css" type="text/css" rel="stylesheet">
+    <link href="/css/enrolledList.css" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="content">
+
+<div class="table_box">
+    <table>
+        <tr>
+            <th>구분</th>
+            <th>교과목명</th>
+            <th>담당교수</th>
+            <th>진도율</th>
+            <th>강의형태</th>
+            <th>관리</th>
+        </tr>
+
+        <!-- 여기서부터 데이터를 받아줘야됨 -->
+        <div th:each="selectedList : ${selectedLectureList}">
+        <tr >
+
+            <td><span th:if="${selectedList != null}" th:text="${selectedList.subjectClassification}"></span></td>
+            <td>
+                <a th:href="@{/enroll/selectedList/{subjectId}(subjectId=${selectedList.subjectId})}">
+                    <span th:if="${selectedList != null}" th:text="${selectedList.subjectName}"></span>
+                </a>
+            </td>
+            <td><span th:if="${selectedList != null}" th:text="${selectedList.userName}"></span></td>
+            <td>0.0%/100%</td>
+            <td><span  th:if="${selectedList != null}" th:text="${selectedList.lectureSelType}"></span></span></td> <!-- 여기 나오는 lectureSelType은 엔티티와 일치시켜야 한다.-->
+            <td>
+                <form action="수강취소URL작성" method="post">
+                    <button>[수강취소]</button>
+                </form>
+            </td>
+        </tr>
+        </div>
+
+        <!-- 여기까지 데이터를 받아줘야됨 -->
+    </table>
+</div>
+<!--    <div style="display: flex;">-->
+<!--        <div style="width: 330px">-->
+<!--            &lt;!&ndash;강의공지&ndash;&gt;-->
+<!--            <div>-->
+<!--                최근 강의 공지-->
+<!--                <hr />-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <ul>-->
+<!--                    <li></li>-->
+<!--                    &lt;!&ndash;이 위치에 공지 데이터&ndash;&gt;-->
+<!--                    <li></li>-->
+<!--                    <li></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div style="width: 60px"></div>-->
+<!--        &lt;!&ndash;빈공간&ndash;&gt;-->
+<!--        <div style="width: 330px">-->
+<!--            &lt;!&ndash;Q*A&ndash;&gt;-->
+<!--            <div>-->
+<!--                최근 강의 Q&A-->
+<!--                <hr />-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <ul>-->
+<!--                    <li></li>-->
+<!--                    &lt;!&ndash;이 위치에 Q&A데이터 &ndash;&gt;-->
+<!--                    <li></li>-->
+<!--                    <li></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+</body>
+</html>

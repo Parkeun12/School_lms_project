@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VisangUni</title>
+        <link href="/css/base.css" type="text/css" rel="stylesheet" th:href="@{/css/base.css}">
+    </head>
+    <body>
+        <!--헤더-->
+        <div th:replace="~{fragments/header::header}"></div>
+
+        <!--바디-->
+        <div layout:fragment="content"></div>
+
+        <!--푸터-->
+        <div th:replace="~{fragments/footer::footer}"></div>
+    </body>
+</html>

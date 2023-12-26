@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisangUni</title>
+    <link href="/css/base.css" type="text/css" rel="stylesheet">
+    <link href="/css/lec_dt_rg.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!-- 헤더부분 -->
+<div class="header">
+    <div class="logo">
+        <a href="main.html"><img src="/images/logo.png" alt="학교로고"></a>
+    </div>
+    <div class="header_text" style="right: -150px;">
+        <div style="width: 150px;">
+                <span style="font-size: 23px;
+                color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
+            <a th:href="|@{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
+        </div>
+        <div>
+            <a href="#">나의 정보</a>
+        </div>
+        <div>
+            <a href="#">강의실</a>
+        </div>
+    </div>
+</div>
+<!-- 사이드 메뉴 -->
+<div class="side_wrap">
+    <div class="side_header">
+        <a>강의실</a>
+    </div>
+    <div class="side_middle">
+        <a>Home</a>
+        <ul><span>강의 정보</span>
+            <li>
+                <a href="#">수업계획서</a>
+            </li>
+
+            <li>
+                <a href="#">강의등록</a>
+            </li>
+        </ul>
+
+        <ul><span>수업 활동</span>
+            <li>
+                <a href="#">강의</a>
+            </li>
+
+            <li>
+                <a href="#">과제</a>
+            </li>
+        </ul>
+
+        <ul><span>커뮤니티</span>
+            <li>
+                <a href="#">공지사항</a>
+            </li>
+
+            <li>
+                <a href="#">Q&A</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="side_footer_f">
+        <a href="#">수강신청</a>
+    </div>
+
+    <div class="side_footer_l">
+        <a href="#">나의정보</a>
+    </div>
+</div>
+<!-- 강좌 바로가기 부분 -->
+<div class="lec_find">
+    <span>강좌바로가기</span>
+    <div class="dropdown">
+        <select>
+            <option value="1">2023년도 2학기</option>
+            <option value="2">2023년도 1학기</option>
+            <option value="3">2022년 2학기</option>
+            <option value="4">2022년도 1학기</option>
+        </select>
+
+        <select>
+            <option value="10">강좌명</option>
+            <option value="20">강좌1</option>
+            <option value="30">강좌2</option>
+            <option value="40">강좌3</option>
+        </select>
+    </div>
+</div>
+<!-- 상세 강의 등록 페이지 -->
+
+<div><h3>상세 강의 등록</h3></div>
+<form th:action="@{/lectureDetail/create}" method="post" th:object="${lectureDetailDto}">
+    <!-- 강의 테이블에서 끌어와야 하는 것임 -->
+    <!-- <label for="lectureSelId">교과목명</label>
+    <input type="text" id="lectureSelId" name="lectureSelId"> -->
+
+    <!-- 외래키로 잡을 거라 이름 설정 어떻게 해야하는지 확인 -->
+    <!-- <label for="lectureSelId">등록자</label>
+    <input type="text" id="lectureSelId" name="lectureSelId"> -->
+
+    <label for="lectureSelSecTitle">부제목(상세 강의 제목)</label>
+    <input type="text" th:field="*{lectureSelSecTitle}" id="lectureSelSecTitle" name="lectureSelSecTitle">
+
+    <label for="lectureSelType"> 수업 형태</label>
+    <input type="text" th:field="*{lectureSelType}" id="lectureSelType" name="lectureSelType">
+
+    <label for="lectureSelWeek">주차</label>
+    <input type="text" th:field="*{lectureSelWeek}" id="lectureSelWeek" name="lectureSelWeek">
+
+    <label for="lectureSelSession">차시</label>
+    <input type="text" th:field="*{lectureSelSession}" id="lectureSelSession" name="lectureSelSession">
+
+    <label for="lectureStart">수업 시작일</label>
+    <input type="date" th:field="*{lectureStart}" id="lectureStart" name="lectureStart">
+
+    <label for="lectureEnd">수업 종료일</label>
+    <input type="date" th:field="*{lectureEnd}" id="lectureEnd" name="lectureEnd">
+
+    <label for="lectureUrl">강의 URL 주소</label>
+    <input type="text" th:field="*{lectureUrl}" id="lectureUrl" name="lectureUrl">
+
+    <button type="submit" class="btn">강의 등록하기</button>
+</form>
+
+<div class="footer">
+    <div class="footer_wrap" style="text-align: center;">
+        <div class="menu"><a href="#" onclick="javascript:window.open('/Account/UsingInfo', 'usinginfo', 'width=800, height=500, scrollbars=no'); Prevent();" title="이용약관">이용약관</a>&nbsp;|&nbsp;<a href="#" onclick="javascript:window.open('https://www.deu.ac.kr/www/content/61'); Prevent();" title="개인정보처리방침">개인정보처리방침</a></div>
+        <div class="address">47340 부산광역시 부산진구 엄광로 176 (교육혁신본부) / TEL. 051-111-2222</div>
+        <div class="copyright">COPYRIGHT 2017 BI-SANG UNIVERSITY. ALL RIGHT RESERVED.</div>
+    </div>
+</div>
+</body>
+</html>
