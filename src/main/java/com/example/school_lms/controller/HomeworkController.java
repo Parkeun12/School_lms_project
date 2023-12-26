@@ -25,7 +25,7 @@ public class HomeworkController {
         return "hwCreate";
     }
 
-    @PostMapping("/homework/create")
+    @PostMapping("/homework/new")
     public String createHomework(HomeworkForm form, Model model){
 
         Homework homework = form.toEntity();

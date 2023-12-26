@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -72,6 +73,8 @@
 
         <!-- 나의정보 메인 중앙작업 -->
         <div class="homework_head">
+            <form th:method="post" th:action="|@{/{loginType}/homework/new (loginType=${loginType})}|"
+                  th:object="${HomeworkForm}">
             <ul>
                 <li class="project_title">과제</li>
 
@@ -81,12 +84,12 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>과제유형</td>
-                        <td><input type="text"></td>
+                        <td><label th:for="homeworkType">과제유형</label></td>
+                        <td><input type="text" th:field="*{homeworkType}"></td>
                     </tr>
                     <tr>
-                        <td>제출기간</td>
-                        <td><input type="date">  <input type="date"></td>
+                        <td><label>제출기간</label></td>
+                        <td><input type="date" th:field="*{homeworkStart}">  <input type="date" th:field="*{homeworkEnd}"></td>
                     </tr>
                     <tr>
                         <td>제목</td>

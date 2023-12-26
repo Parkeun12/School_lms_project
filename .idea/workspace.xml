@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/HomeworkForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/Homework.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/LectureData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/HomeworkRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/hwList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/hwSubmit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/HomeworkForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/HomeworkForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,14 +55,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "eunchae",
-    "last_opened_file_path": "C:/springprojects/2023-12-04 1차백업"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;eunchae&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/springprojects/2023-12-04 1차백업&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\springprojects\lms_project_sum\src\main\resources\templates" />

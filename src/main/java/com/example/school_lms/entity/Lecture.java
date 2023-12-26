@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,8 +18,9 @@ import java.util.Date;
 public class Lecture { // 강의 테이블
 
     @Id
-    @Column(name = "subject_id")
-    private String subjectId; //강의 아이디
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="subject_id")
+    private Long subjectId; // 강의 아이디
 
 
     @ManyToOne
@@ -34,7 +36,7 @@ public class Lecture { // 강의 테이블
     @Column
     private String subjectTime; // 시간
     @Column
-    private String subjectClassification; // 이수구분(일반1, 전공2, 교양3)
+    private String subjectClassification; // 이수구분
     @Column
     private String subjectGrade; // 대상학년
     @Column
@@ -52,7 +54,7 @@ public class Lecture { // 강의 테이블
     @Column
     private String subjectClass; // 강의실
     @Column
-    private int subjectDay; // 강의요일
+    private String subjectDay; // 강의요일
     @Column
     private String subjectPeriod; // ex) 1-4교시
     @Column
@@ -60,13 +62,13 @@ public class Lecture { // 강의 테이블
     @Column
     private String subjectReference; // 참고 문헌 및 관련 인터넷 사이트
     @Column
-    private Date subjectReqStart; // 신청 시작일
+    private LocalDate subjectReqStart; // 신청 시작일
     @Column
-    private Date subjectReqEnd; // 신청 종료일
+    private LocalDate subjectReqEnd; // 신청 종료일
     @Column
-    private Date subjectOpStart; // 학기 시작일
+    private LocalDate subjectOpStart; // 학기 시작일
     @Column
-    private Date subjectOpEnd; // 학기 종료일
+    private LocalDate subjectOpEnd; // 학기 종료일
     @Column
     private int testMidterm; // 중간고사
     @Column
