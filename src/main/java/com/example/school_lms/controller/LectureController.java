@@ -1,6 +1,6 @@
 package com.example.school_lms.controller;
 
-import com.example.school_lms.Service.LectureService;
+//import com.example.school_lms.Service.LectureService;
 import com.example.school_lms.Service.UserService;
 import com.example.school_lms.dto.LectureDto;
 import com.example.school_lms.entity.Lecture;
@@ -22,8 +22,8 @@ import java.util.Optional;
 @RequestMapping(value = "/lecture")
 public class LectureController {
 
-    @Autowired
-    LectureService lectureService;
+//    @Autowired
+//    LectureService lectureService;
 
     @Autowired
     UserRepository userRepository;
@@ -61,14 +61,14 @@ public class LectureController {
 //    }
 
     //수강신청 맵핑
-    @PostMapping(value = "/regist")
-    public String lecRegist(LectureDto lectureDto){
-
-        Lecture lecture = LectureService.createLecture(lectureDto);
-        lectureService.saveLecture(lecture);
-
-        return "lecture/regist";
-    }
+//    @PostMapping(value = "/regist")
+//    public String lecRegist(LectureDto lectureDto){
+//
+//        Lecture lecture = LectureService.createLecture(lectureDto);
+//        lectureService.saveLecture(lecture);
+//
+//        return "lecture/regist";
+//    }
 
 
 
