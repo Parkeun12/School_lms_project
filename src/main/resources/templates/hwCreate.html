@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisangUni</title>
+    <link href="/css/base.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<!--로그인 안했을 때-->
+<div th:if="${userdataName == null}">
+    <!-- 헤더 부분 -->
+    <div class="header">
+        <div class="logo">
+            <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+        <div class="header_text">
+            <div>
+                <a th:href="@{/visang_university/login}">로그인</a>
+            </div>
+            <div>
+                <a th:href="@{/visang_university/mypage}">나의 정보</a>
+            </div>
+            <div>
+                <a href="#">강의실</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--    로그인 했을 때-->
+<div th:unless="${userdataName == null}">
+    <!-- 헤더 부분 -->
+    <div class="header">
+        <div class="logo">
+            <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+        <div class="header_text">
+            <div style="width: 150px;">
+                <span style="font-size: 23px;
+                color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
+                <a th:href="@{/visang_university/logout}"><b style="font-size: 15px;" >로그아웃</b></a>
+            </div>
+            <div>
+                <a th:href="@{/visang_university/mypage}">나의 정보</a>
+            </div>
+            <div>
+                <a href="#">강의실</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="side_wrap">
+        <div class="side_header">
+            <a>강의실</a>
+        </div>
+        <div class="side_middle">
+            <a>Home</a>
+            <ul><span>강의 정보</span>
+                <li>
+                    <a href="#">수업계획서</a>
+                </li>
+
+                <li>
+                    <a href="#">강의등록</a>
+                </li>
+            </ul>
+
+            <ul><span>수업 활동</span>
+                <li>
+                    <a href="#">강의</a>
+                </li>
+
+                <li>
+                    <a href="#">과제</a>
+                </li>
+            </ul>
+
+            <ul><span>커뮤니티</span>
+                <li>
+                    <a href="#">공지사항</a>
+                </li>
+
+                <li>
+                    <a href="#">Q&A</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="side_footer_f">
+            <a href="#">수강신청</a>
+        </div>
+
+        <div class="side_footer_l">
+            <a href="#">나의정보</a>
+        </div>
+
+        <!-- 나의정보 메인 중앙작업 -->
+        <div class="homework_head">
+            <form th:method="post" th:action="@{/homework/create}" th:object="${homeworkForm}">
+            <ul>
+                <li class="project_title">과제</li>
+
+                <table class="homework_table">
+                    <tr>
+                        <td>N주차 N차시</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label th:for="homeworkType">과제유형</label></td>
+                        <td><input type="text" th:field="*{homeworkType}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>제출기간</label></td>
+                        <td><input type="date" th:field="*{homeworkStart}" th:format="'yyyy-MM-dd'">  <input type="date" th:field="*{homeworkEnd}" th:format="'yyyy-MM-dd'"></td>
+                    </tr>
+                    <tr>
+                        <td>제목</td>
+                        <td><input type="text" th:field="*{homeworkTitle}"></td>
+                    </tr>
+                    <tr>
+                        <td>내용</td>
+                        <td><input type="text" class="introduce" th:field="*{homeworkContent}"></td>
+                    </tr>
+                    <tr>
+                        <td>첨부파일</td>
+                        <td><input type="file" th:field="*{homeworkFile}"></td>
+                    </tr>
+                </table>
+            </ul>
+            <button class="save_button">등록하기</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+
+    .homework_table{
+        position: relative;
+        top: 70px;
+    }
+    
+    .introduce {
+        width: 500px;
+        height: 115px;
+        border: 1px solid #8a8a8a;
+    }
+
+    .project_title {
+        font-size: 20px;
+        font-weight: bold;
+        position: relative;
+        top: 40px;
+    }
+
+    .save_button {
+        margin: 0 auto;
+        position: relative;
+        top: 100px;
+        left: 400px;
+        width: 80px;
+        height: 35px;
+        border: none;
+        background-color: #4bb0c9;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* 내정보헤더 */
+
+    .homework_head {
+        position: relative;
+        left: 220px;
+        bottom: 607px;
+        width: 780px;
+        height: 40px;
+    }
+
+    ul li {
+        margin: 0;
+        padding: 0;
+    }
+</style>

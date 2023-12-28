@@ -13,14 +13,4 @@ public interface LectureRepository extends JpaRepository<Lecture, String> {
 
     Lecture findBySubjectId(String subject_id);
 
-
-//    Lecture findById();
-
-//    Lecture findById(String subject_id);
-
-
-    // 검색기능
-//    List<Posts> findBySubjectNameContaining(String keyword);
-
-//    ArrayList<Lecture> findAllSubjectId(Long subject_id);
 }
