@@ -24,8 +24,8 @@ public class Lecture { // 강의 테이블
 
 
     @ManyToOne
-    @JoinColumn(name="user_id")
-    private  Professor userId; // 교수아이디
+    @JoinColumn(name="id")
+    private User userId; // 교수아이디
 
     @Column
     private String subjectName; //교과목명
@@ -44,7 +44,7 @@ public class Lecture { // 강의 테이블
     @Column
     private String subjectSemester; // 학기
     @Column
-    private String userName; // 담당교수
+    private String userdataName; // 담당교수
     @Column
     private String userPhone; // 담당교수 연락처
     @Column

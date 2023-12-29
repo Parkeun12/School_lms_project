@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisangUni</title>
+    <link href="/css/base.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<!--로그인 안했을 때-->
+<div th:if="${userdataName == null}">
+    <!-- 헤더 부분 -->
+    <div class="header">
+        <div class="logo">
+            <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+        <div class="header_text">
+            <div>
+                <a th:href="@{/visang_university/login}">로그인</a>
+            </div>
+            <div>
+                <a th:href="@{/visang_university/mypage}">나의 정보</a>
+            </div>
+            <div>
+                <a href="#">강의실</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--    로그인 했을 때-->
+<div th:unless="${userdataName == null}">
+    <!-- 헤더 부분 -->
+    <div class="header">
+        <div class="logo">
+            <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+        <div class="header_text">
+            <div style="width: 150px;">
+                <span style="font-size: 23px;
+                color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
+                <a th:href="@{/visang_university/logout}"><b style="font-size: 15px;" >로그아웃</b></a>
+            </div>
+            <div>
+                <a th:href="@{/visang_university/mypage}">나의 정보</a>
+            </div>
+            <div>
+                <a href="#">강의실</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="side_wrap">
+        <div class="side_header">
+            <a>강의실</a>
+        </div>
+        <div class="side_middle">
+            <a>Home</a>
+            <ul><span>강의 정보</span>
+                <li>
+                    <a href="#">수업계획서</a>
+                </li>
+
+                <li>
+                    <a href="#">강의등록</a>
+                </li>
+            </ul>
+
+            <ul><span>수업 활동</span>
+                <li>
+                    <a th:href="@{/lecture_detail}">강의</a>
+                </li>
+
+                <li>
+                    <a th:href="@{/homework/list}">과제</a>
+                </li>
+            </ul>
+
+            <ul><span>커뮤니티</span>
+                <li>
+                    <a href="#">공지사항</a>
+                </li>
+
+                <li>
+                    <a href="#">Q&A</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="side_footer_f">
+            <a href="#">수강신청</a>
+        </div>
+
+        <div class="side_footer_l">
+            <a href="#">나의정보</a>
+        </div>
+
+        <!-- 나의정보 메인 중앙작업 -->
+        <div>
+            <div class="homework_head">
+                <ul>
+                    <li class="project_title">과제</li>
+                        <table>
+                            <tr>
+                                <td class="first">과제유형</td>
+                                <td class="second" th:text="${homework.homeworkType}"></td>
+                                <td class="first">주차-차시</td>
+                                <td class="second"><span>11</span>주차 - <span>1</span>차시</td>
+                            </tr>
+                            <tr>
+                                <td class="first">제출기간</td>
+                                <td colspan='3'><span th:text="${homework.homeworkStart}"></span> ~ <span th:text="${homework.homeworkEnd}"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="first">제목</td>
+                                <td colspan='3' class="left_" th:text="${homework.homeworkTitle}"></td>
+                            </tr>
+                            <tr>
+                                <td class="hw_text first">내용</td>
+                                <td colspan='3' class="left_ text_f" th:text="${homework.homeworkContent}"></td>
+                            </tr>
+                            <tr>
+                                <td class="first">첨부파일</td>
+                                <td colspan='3' class="left_" th:text="${homework.homeworkFile}"></td>
+                            </tr>
+                        </table>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+
+.save_button {
+        margin: 0 auto;
+        position: relative;
+        top: 120px;
+        left: 320px;
+        width: 80px;
+        height: 35px;
+        border: none;
+        background-color: #4bb0c9;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .text_space{
+        width: 650px;
+        height: 150px;
+        vertical-align: top;
+    }
+
+    .table2{
+        border: 2px solid #cfcfcf;
+        border-collapse : collapse;
+
+        position: relative;
+        right: 20px;
+        top: 100px;
+        width: 760px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .project_title2 {
+        font-size: 15px;
+        font-weight: bold;
+        position: relative;
+        top: 90px;
+    }
+
+    .second{
+        width: 280px;
+    }
+
+    .first{
+        width: 100px;
+        height: 30px;
+        background-color: #eeeeee;
+    }
+
+    .text_f{
+        height: 150px;
+    }
+
+    .introduce {
+        width: 685px;
+        height: 115px;
+        border: 2px solid #d3d3d3;
+    }
+
+    .left_{
+        text-align: left;
+        font-size: 14px;
+    }
+
+    th{
+        background-color: #e7e7e7;
+    }
+
+.project_title {
+        font-size: 20px;
+        font-weight: bold;
+        position: relative;
+        top: 30px;
+    }
+
+    /* 기본정보 테이블 */
+    table{
+        border: 2px solid #cfcfcf;
+        border-collapse : collapse;
+
+        position: relative;
+        right: 20px;
+        top: 50px;
+        width: 760px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    td{
+        padding: 5px;
+        border: 2px solid #cfcfcf;
+        color: #4e4e4e;
+    }
+
+    .homework_head {
+        position: relative;
+        left: 220px;
+        bottom: 657px;
+        width: 780px;
+        height: 40px;
+    }
+
+    ul li {
+        margin: 0;
+        padding: 0;
+    }
+</style>            

@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisangUni</title>
-    <link rel="stylesheet" type="text/css" href="/css/base.css" th:href="@{/css/background.css}">
-    <link rel="stylesheet" type="text/css" href="/css/lecture_detail_register.css" th:href="@{/css/lecture_detail_register.css}">
+    <link rel="stylesheet" type="text/css" href="/css/background.css" th:href="@{/css/background.css}">
+    <link rel="stylesheet" type="text/css" href="/css/lec_detail.css" th:href="@{/css/lec_detail.css}">
 </head>
 <body>
 <!-- 헤더부분 -->
@@ -14,7 +14,7 @@
     <div class="logo">
         <a href="main.html"><img src="/images/logo.png" alt="학교로고"></a>
     </div>
-    <div class="header_text" style="right: -150px;">
+    <div class="header_text">
         <div style="width: 150px;">
                 <span style="font-size: 23px;
                 color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
@@ -38,10 +38,6 @@
         <ul><span>강의 정보</span>
             <li>
                 <a href="#">수업계획서</a>
-            </li>
-
-            <li>
-                <a href="#">강의등록</a>
             </li>
         </ul>
 
@@ -93,56 +89,57 @@
         </select>
     </div>
 </div>
-<!-- 상세 강의 등록 페이지 -->
-
-<div class="con_header"><h3>상세 강의 등록</h3></div>
-<form th:action="@{/lectureDetail/create}" method="post" th:object="${lectureDetailDto}">
-
-    <!-- 강의 테이블에서 끌어와야 하는 것임 -->
+<!-- 상세 강의 내용 -->
+<div class="title_container">
+    <div><h3>온라인 강의</h3></div>
     <div>
-        교과목명
+        <img src="/images/home.png" alt="홈아이콘">
     </div>
-
     <div>
-        부제목<br>(상세 강의 제목) <input type="text" th:field="*{lectureSelSecTitle}">
+        수업활동 >
     </div>
-
     <div>
-        주차 <input type="text" th:field="*{lectureSelWeek}">
+        온라인강의
     </div>
+</div>
 
-    <div>
-        차시<input type="text" th:field="*{lectureSelSession}">
+<div class="container">
+    <div class="text_up">
+        <b>원격강의의 경우 강의 주제를 클릭하시면, 강의를 수강하실 수 있습니다.</b>
+        <a href="#"onclick="showPopup();"><span>출결 기준 안내 </span>  <img src="/images/qq.png" alt="물음표아이콘"></a><br>
     </div>
-
-    <div>
-        수업 시작일 <input type="date" th:field="*{lectureStart}">
+    <div class="text_down">
+        <b>※출석기간 내에 강의를 들으신 후 반드시 학습현황 메뉴에서 출석 여부를 확인하시기 바랍니다.</b>
     </div>
+</div>
 
-    <div>
-        수업 종료일<input type="date" th:field="*{lectureEnd}">
-    </div>
-
-    <div class="con_right">
-        <div>
-            <!-- 외래키로 잡을 거라 이름 설정 어떻게 해야하는지 확인 -->
-            등록자 [[${userdataName}]]
-        </div>
-
-        <div>
-            수업 형태<label><input type="radio" value="대면" th:field="*{lectureSelType}"> 대면</label>
-            <label><input type="radio" value="온라인" th:field="*{lectureSelType}"> 온라인</label>
-        </div>
-
-        <div>
-            강의 URL 주소<input type="text" th:field="*{lectureUrl}">
-        </div>
-    </div>
-    <button type="submit" class="btn">상세 강의 등록</button>
-</form>
-
-
-
+<!-- 수업형태&과제 버튼 형식으로 변경 필요함 -->
+<table>
+    <thead>
+    <tr>
+        <th>주차</th>
+        <th>차시</th>
+        <th>강의주제</th>
+        <th>수업<br>형태</th>
+        <th>출결<br>상태</th>
+        <th>과제</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lectureDetail : ${lectureDetailList}">
+        <td th:text="${lectureDetail.lectureSelWeek}"></td>
+        <td th:text="${lectureDetail.lectureSelSession}"></td>
+        <td>
+            <a th:href="${lectureDetail.lectureUrl}" target="iframe" onclick="openPopup()">
+                <button style="border: none; outline: none; background-color: inherit; cursor: pointer;" th:text="${lectureDetail.lectureSelSecTitle}"></button>
+            </a>
+        </td>
+        <td><button th:text="${lectureDetail.lectureSelType}"></button></td>
+        <td th:text="${lectureDetail.lectureSelAttend}">출석</td>
+        <td><button th:text="${lectureDetail.lectureSelProject}"></button></td>
+    </tr>
+    </tbody>
+</table>
 <div class="footer">
     <div class="footer_wrap" style="text-align: center;">
         <div class="menu"><a href="#" onclick="javascript:window.open('/Account/UsingInfo', 'usinginfo', 'width=800, height=500, scrollbars=no'); Prevent();" title="이용약관">이용약관</a>&nbsp;|&nbsp;<a href="#" onclick="javascript:window.open('https://www.deu.ac.kr/www/content/61'); Prevent();" title="개인정보처리방침">개인정보처리방침</a></div>
@@ -150,5 +147,12 @@
         <div class="copyright">COPYRIGHT 2017 BI-SANG UNIVERSITY. ALL RIGHT RESERVED.</div>
     </div>
 </div>
+
+<!-- 출결기준안내 팝업 시작 -->
+<script th:inline="javascript">
+    function showPopup() {
+        window.open("popup.html", "출결기준안내", "width=600, height=200, left=700, top=400");
+    }
+</script>
 </body>
 </html>

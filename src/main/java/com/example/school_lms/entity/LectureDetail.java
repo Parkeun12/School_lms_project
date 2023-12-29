@@ -50,17 +50,14 @@ public class LectureDetail {
     @Column(name = "lecture_url")
     private String lectureUrl;     // 강의 주소(url)
 
-//    유저 테이블에서 가져와야함
-//    @Column(length = 20, nullable = false)
-//    private String id;          // 교수님
+    @ManyToOne
+    @JoinColumn(name="id")
+    private User userId; // 교수아이디
+
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private Lecture subjectId;        // 강의 번호 외래키 지정
 
 
-    //강의 테이블에서 가져와야함
-//    @Column(length = 200, nullable = false)
-//    private String title;       // 강의 제목
-
-//    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "cno", referencedColumnName = "no")
-//    private Lecture lecture;        // 강의 번호 외래키 지정
 
 }

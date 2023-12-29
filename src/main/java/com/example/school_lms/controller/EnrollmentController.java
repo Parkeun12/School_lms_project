@@ -66,8 +66,8 @@ public class EnrollmentController {
     }
 
     @GetMapping("/enroll/lecPlan/{Id}") // 수강신청화면(기획서 11페이지) 강의 제목을 누르면 해당 강의의 상세 정보(기획서 12페이지)를 볼 수 있다.
-    public String enrollLecturePlan(@PathVariable String Id, Model model){ // Long을 String으로 바꿨음. lectureRepository수정하면서.
-        String subjectId = Id;
+    public String enrollLecturePlan(@PathVariable Long Id, Model model){ // Long을 String으로 바꿨음. lectureRepository수정하면서.
+        Long subjectId = Id;
         Lecture lecturePlan = lectureRepository.findBySubjectId(subjectId);
         if (lecturePlan == null) {
             String lecturePlanExcep= "SubjectIdIsNull";

@@ -5,12 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/background.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/lec_detail.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/lecture_detail_register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/hwListStudent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/hwSubmitStudent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Service/LectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Service/LectureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Service/LectureDetailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/EnrollmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/LectureDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/LectureDetailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/Lecture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/LectureDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/LectureDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/HomeworkSubmitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/HomeworkSubmitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureDetailRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/lec_dt.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/lec_dt.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwSubmit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwSubmit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailNew.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailNew.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailShow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,21 +75,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;eunchae&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/springprojects/2023-12-04 1차백업&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "eunchae",
+    "last_opened_file_path": "C:/Users/admin/Desktop/Test22/School_lms_project/src/main/resources/templates"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\springprojects\lms_project_sum\src\main\resources\templates" />
-      <recent name="C:\springprojects\lms_project_sum\src\main\java\com\example\school_lms\repository" />
-      <recent name="C:\springprojects\lms_project_sum\src\main\java\com\example\school_lms\entity" />
-      <recent name="C:\springprojects\lms_project_sum\src\main\java\com\example\school_lms\dto" />
-      <recent name="C:\springprojects\lms_project_sum\src\main\resources\static\images" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\static\css" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\repository" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\entity" />
+      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
@@ -79,9 +98,10 @@
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\dto" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.school_lms.repository" />
+      <recent name="com.example.school_lms.controller" />
       <recent name="com.example.school_lms.entity" />
       <recent name="com.example.school_lms.dto" />
-      <recent name="com.example.school_lms.controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -120,22 +140,6 @@
       <updated>1702858766765</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureDetailController.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/SessionLoginController.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/School_lms_project$C__Users_admin_Desktop_Test22_School_lms_project_build_gradle.ic" NAME="$PROJECT_DIR$/build.gradle Coverage Results" MODIFIED="1702859122333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
