@@ -28,6 +28,16 @@ public class UserController {
         }
         // userId가 없거나 사용자를 찾을 수 없는 경우 로그인 페이지로 리다이렉트
         return "redirect:/visang_university/login";
+
+//        if (userId != null) {
+//            User user = userService.getLoginUserById(userId);
+//            if (user != null) {
+//
+//                return "";
+//            }
+//        }
+//        // userId가 없거나 사용자를 찾을 수 없는 경우 로그인 페이지로 리다이렉트
+//        return "redirect:/visang_university/login";
     }
 
 

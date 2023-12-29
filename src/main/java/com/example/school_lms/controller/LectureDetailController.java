@@ -31,10 +31,18 @@ public class LectureDetailController {
 
     @GetMapping("/lectureDetail/new")
     public String lectureDetailSave(Model model, @SessionAttribute(name = "userId", required = false) Long userId){
-        User user = userService.getLoginUserById(userId);
-        model.addAttribute("userdataName", user.getUserdataName());
-        model.addAttribute("lectureDetailDto", new LectureDetailDto());
-        return "lecture_detailNew";
+
+        if (userId != null) {
+            User user = userService.getLoginUserById(userId);
+            if (user != null) {
+                model.addAttribute("userdataName", user.getUserdataName());
+                model.addAttribute("lectureDetailDto", new LectureDetailDto());
+
+                return "lecture_detailNew";
+            }
+        }
+        // userId가 없거나 사용자를 찾을 수 없는 경우 로그인 페이지로 리다이렉트
+        return "redirect:/visang_university/login";
     }
     //     강의 등록 (post)
     @PostMapping("/lectureDetail/create")
@@ -53,20 +61,24 @@ public class LectureDetailController {
     @GetMapping("/lecture_detail")
     public String index(Model model, @SessionAttribute(name = "userId", required = false) Long userId)
     {
-        User user = userService.getLoginUserById(userId);
-        User loginUser = userService.getLoginUserById(userId);
+        if (userId != null) {
+            User user = userService.getLoginUserById(userId);
+            if (user != null) {
+                model.addAttribute("userdataName", user.getUserdataName());
+                //1. 디비에서 Article 테이블에 있는 모든 데이터 가져오기
+                ArrayList<LectureDetail> lectureDetailEntityList = lectureDetailRepository.findAll();
 
-        model.addAttribute("userdataName", user.getUserdataName());
-        //1. 디비에서 Article 테이블에 있는 모든 데이터 가져오기
-        ArrayList<LectureDetail> lectureDetailEntityList = lectureDetailRepository.findAll();
+                //2. Article 묶음을 모델에 등록( Entity > Model )
+                model.addAttribute("lectureDetailList", lectureDetailEntityList);
 
-        //2. Article 묶음을 모델에 등록( Entity > Model )
-        model.addAttribute("lectureDetailList", lectureDetailEntityList);
-
-        if(!loginUser.getRole().equals(UserRole.PROFESSOR)) {
-            return "lecture_detailList2";
+                if(!user.getRole().equals(UserRole.PROFESSOR)) {
+                    return "lecture_detailList2";
+                }
+                //3. 뷰에 모델 뿌
+                return "lecture_detailList";
+            }
         }
-        //3. 뷰에 모델 뿌리기(표시)
-        return "lecture_detailList";
+        // userId가 없거나 사용자를 찾을 수 없는 경우 로그인 페이지로 리다이렉트
+        return "redirect:/visang_university/login";
     }
 }

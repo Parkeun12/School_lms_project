@@ -5,31 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/background.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/lec_detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/lecture_detail_register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/hwListStudent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/hwSubmitStudent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/Service/LectureDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/EnrollmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/LectureDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/LectureDetailDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/Lecture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/LectureDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/LectureDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/HomeworkSubmitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/HomeworkSubmitRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/LectureRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/lec_dt.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/lec_dt.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwSubmit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwSubmit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailNew.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailNew.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailShow.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +61,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "eunchae",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/admin/Desktop/Test22/School_lms_project/src/main/resources/templates"
   }
 }]]></component>
