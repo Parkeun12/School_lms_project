@@ -70,11 +70,11 @@
 
             <ul><span>수업 활동</span>
                 <li>
-                    <a href="#">강의</a>
+                    <a th:href="@{/lecture_detail}">강의</a>
                 </li>
 
                 <li>
-                    <a href="#">과제</a>
+                    <a th:href="@{/homework/list}">과제</a>
                 </li>
             </ul>
 
@@ -104,10 +104,6 @@
                 <li class="project_title">과제</li>
 
                 <table class="homework_table">
-                    <tr>
-                        <td>N주차 N차시</td>
-                        <td></td>
-                    </tr>
                     <tr>
                         <td><label th:for="homeworkType">과제유형</label></td>
                         <td><input type="text" th:field="*{homeworkType}"></td>

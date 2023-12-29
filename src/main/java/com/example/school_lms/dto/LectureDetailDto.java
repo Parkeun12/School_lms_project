@@ -19,10 +19,11 @@ public class LectureDetailDto {
     private String lectureSelProject;     // 과제
     private String lectureStart;     // 수업 시작일
     private String lectureEnd;     // 수업 종료일
-    private String lectureUrl;     // 강의 주소(url)]
+    private String lectureUrl;    // 강의 주소(url)]
 
-//    private Lecture lecture;        // 강의 번호 외래키 지정
-public LectureDetail toEntity(){
-    return new LectureDetail(lectureSelId, lectureSelWeek, lectureSelSession, lectureSelSecTitle, lectureSelType, lectureSelAttend, lectureSelProject,lectureStart,lectureEnd,lectureUrl);
-}
+    private Long Id;
+    private Long subjectId;
+    public LectureDetail toEntity(){
+        return new LectureDetail(lectureSelId,lectureSelWeek,lectureSelSession,lectureSelSecTitle,lectureSelType,lectureSelAttend,lectureSelProject,lectureStart,lectureEnd,lectureUrl,null,null);
+    }
 }

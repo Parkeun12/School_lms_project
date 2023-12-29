@@ -77,7 +77,8 @@
 /* 테이블 */
 table {
     position:relative;
-    top:500px;
+    top:170px;
+    left:95px;
     border-collapse: collapse;
     width: 700px;
     margin: 1rem auto;
@@ -85,7 +86,7 @@ table {
     background-color: white;
     font-size: 15px;
   }
-  
+
   /* 테이블 행 */
   th, td {
     padding: 8px;
@@ -93,30 +94,30 @@ table {
     border: 1px solid #ccc;
     text-align: center;
   }
-  
+
   th {
     background-color: #787878;
     color: #fff;
   }
-  
+
   /* 테이블 올렸을 때 */
   tbody tr:hover {
     background-color: #d3d3d3;
     opacity: 0.9;
     cursor: pointer;
   }
-  
+
   /* 테이블 비율 */
   th:nth-child(1),
   td:nth-child(1) {
     width: 2%;
   }
-  
+
   th:nth-child(2),
   td:nth-child(2) {
     width: 2%;
   }
-  
+
   th:nth-child(3),
   td:nth-child(3) {
     width: 60%;

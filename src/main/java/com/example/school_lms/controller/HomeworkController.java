@@ -9,19 +9,16 @@ import com.example.school_lms.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 public class HomeworkController {
 
     private final LectureRepository lectureRepository;
-    private final LectureDataRepository lectureDataRepository;
     private final UserService userService;
     private final HomeworkRepository homeworkRepository;
     private final UserRepository userRepository;
@@ -30,9 +27,7 @@ public class HomeworkController {
     @GetMapping("/homework/create")
     public String showCreateHomeworkForm(@SessionAttribute(name = "userId", required = false) Long userId, Model model) {
         User user = userService.getLoginUserById(userId);
-
         model.addAttribute("homeworkForm", new HomeworkForm());
-//        위에 로그인했을 시 이름표기부분
         model.addAttribute("userdataName", user.getUserdataName());
         return "hwCreate";
     }
@@ -40,38 +35,21 @@ public class HomeworkController {
     @PostMapping("/homework/create")
     public String createHomework(
             HomeworkForm homeworkForm,
-            @SessionAttribute(name = "userId", required = false) Long userId,
-            @PathVariable(name = "subjectId") Long subjectId) {
+            @SessionAttribute(name = "userId", required = false) Long userId) {
         User loginUser = userService.getLoginUserById(userId);
 
-        // 강의 정보 가져오기 (homeworkForm에서 lectureDataId를 가져와서 사용)
-        // 더미데이터 임시사용
-        Long lectureDataId = 1L;
-        LectureData lectureData = lectureDataRepository.findById(lectureDataId).orElse(null);
-
-        if (!loginUser.getRole().equals(UserRole.PROFESSOR)) {
-            // 교수가 아닌 경우 또는 로그인 사용자가 없는 경우
-            return "redirect:/visang_university"; // 또는 다른 처리를 수행하도록 수정
-        }
+        Long subjectId = 1L;
+        Lecture lecture = lectureRepository.findById(subjectId).orElse(null);
 
         // 강의 정보를 HomeworkForm에 설정
-        homeworkForm.setSubjectId(lectureData.getSubjectDataId());
+        homeworkForm.setSubjectId(lecture.getSubjectId());
 
         // Homework 생성 및 저장
         Homework homework = homeworkForm.toEntity();
-//
-//        // 사용자와 강의 데이터 저장
-//        User user = loginUser; // 사용자 정보는 이미 로그인 정보에서 가져옴
-//        // 변경사항이 있다면 반영하여 저장
-//        user = userRepository.save(user); // 사용자 정보 저장
-
-
-//        여기아래랑 homework.setSubjectId부분 활성화해야함 오류로 활성화 안해둠
-//        Lecture savedLecture = lectureRepository.save(lecture); // 강의 데이터 저장
 
         // Homework에 사용자와 강의 데이터 설정
         homework.setUser(loginUser);
-//        homework.setSubjectId(savedLecture);
+        homework.setSubjectId(lecture);
 
         // Homework 저장
         Homework savedHomework = homeworkRepository.save(homework);
@@ -80,12 +58,20 @@ public class HomeworkController {
         return "redirect:/homework/list";
     }
 
+
     @GetMapping("/homework/list")
     public String homeworkList(@SessionAttribute(name = "userId", required = false) Long userId, Model model){
 
         User user = userService.getLoginUserById(userId);
         ArrayList<Homework> homeworkData = homeworkRepository.findAll();
 //        ArrayList<Homework> homeworkData = homeworkRepository.findHomeworkTypeHomeworkStartHomeworkEndHomeworkTitle;
+
+        if(!user.getRole().equals(UserRole.PROFESSOR)) {
+            model.addAttribute("userdataName", user.getUserdataName());
+            model.addAttribute("homeworks", homeworkData);
+
+            return "hwListStudent";
+        }
 
         model.addAttribute("userdataName", user.getUserdataName());
         model.addAttribute("homeworks", homeworkData);
@@ -103,6 +89,48 @@ public class HomeworkController {
         User user = userService.getLoginUserById(userId);
         model.addAttribute("userdataName", user.getUserdataName());
 
+        if(!user.getRole().equals(UserRole.PROFESSOR)) {
+
+            // homeworkId에 해당하는 숙제 데이터만 가져오기
+            Homework homework = homeworkRepository.findById(homeworkId).orElse(null);
+
+            // homeworkId에 해당하는 숙제 데이터가 없다면 예외 처리 또는 적절한 로직 추가
+            if (homework == null) {
+                // 숙제 데이터가 없는 경우
+                return "/homework/list";
+            }
+
+            // 해당 숙제 데이터를 모델에 추가
+            model.addAttribute("homework", homework);
+
+            // 해당 숙제에 대한 제출 정보 가져오기
+            Optional<HomeworkSubmit> existingSubmit = homeworkSubmitRepository.findByHomework_HomeworkIdAndUser_Id(homeworkId, userId);
+
+            if (existingSubmit.isPresent()) {
+// 기존 제출 정보가 있는 경우
+                HomeworkSubmitForm homeworkSubmitForm = new HomeworkSubmitForm();
+                HomeworkSubmit submit = existingSubmit.get();
+                homeworkSubmitForm.setHomeworkSubContent(submit.getHomeworkSubContent());
+                homeworkSubmitForm.setHomeworkSubFile(submit.getHomeworkSubFile());
+
+// 파일 이름을 모델에 추가
+                model.addAttribute("submittedFileName", submit.getHomeworkSubFile());
+
+// 모델에 homeworkSubmitForm을 추가
+                model.addAttribute("homeworkSubmitForm", homeworkSubmitForm);
+            } else {
+                // 기존 제출 정보가 없는 경우
+                // 모델에 빈 homeworkSubmitForm 추가
+                model.addAttribute("homeworkSubmitForm", new HomeworkSubmitForm());
+            }
+
+            // 다른 모델 데이터 추가
+            ArrayList<Homework> homeworkData = homeworkRepository.findAll();
+            model.addAttribute("homeworks", homeworkData);
+
+            return "hwSubmitStudent";
+        }
+
         // homeworkId에 해당하는 숙제 데이터만 가져오기
         Homework homework = homeworkRepository.findById(homeworkId).orElse(null);
 
@@ -115,42 +143,74 @@ public class HomeworkController {
         // 해당 숙제 데이터를 모델에 추가
         model.addAttribute("homework", homework);
 
-        // 모델에 homeworkSubmitForm을 빈 객체로 추가
-        HomeworkSubmitForm homeworkSubmitForm = new HomeworkSubmitForm();
-        homeworkSubmitForm.setHomeworkId(homeworkId); // 해당 숙제 ID 설정
-        model.addAttribute("homeworkSubmitForm", homeworkSubmitForm);
+//        // 해당 숙제에 대한 제출 정보 가져오기
+//        Optional<HomeworkSubmit> existingSubmit = homeworkSubmitRepository.findByHomework_HomeworkIdAndUser_Id(homeworkId, userId);
+//
+//        if (existingSubmit.isPresent()) {
+//// 기존 제출 정보가 있는 경우
+//            HomeworkSubmitForm homeworkSubmitForm = new HomeworkSubmitForm();
+//            HomeworkSubmit submit = existingSubmit.get();
+//            homeworkSubmitForm.setHomeworkSubContent(submit.getHomeworkSubContent());
+//            homeworkSubmitForm.setHomeworkSubFile(submit.getHomeworkSubFile());
+//
+//// 파일 이름을 모델에 추가
+//            model.addAttribute("submittedFileName", submit.getHomeworkSubFile());
+//
+//// 모델에 homeworkSubmitForm을 추가
+//            model.addAttribute("homeworkSubmitForm", homeworkSubmitForm);
+//        } else {
+//            // 기존 제출 정보가 없는 경우
+//            // 모델에 빈 homeworkSubmitForm 추가
+//            model.addAttribute("homeworkSubmitForm", new HomeworkSubmitForm());
+//        }
 
+        // 다른 모델 데이터 추가
         ArrayList<Homework> homeworkData = homeworkRepository.findAll();
         model.addAttribute("homeworks", homeworkData);
 
+
         return "hwSubmit";
     }
-
 
     @PostMapping("/homework/submit/{homeworkId}")
     public String homeworkSubmitCreate(
             HomeworkSubmitForm homeworkSubmitForm,
             @PathVariable(name = "homeworkId") Long homeworkId,
-            @SessionAttribute(name = "userId", required = false) Long userId){
+            @SessionAttribute(name = "userId", required = false) Long userId) {
 
         User loginUser = userService.getLoginUserById(userId);
-
         Homework homework = homeworkRepository.findById(homeworkId).orElse(null);
 
-        //과제 정보를 homeworkForm에 설정
-        homeworkSubmitForm.setHomeworkId(homework.getHomeworkId());
+        if (homework == null) {
+            // 과제가 없는 경우 예외 처리 또는 적절한 로직 추가
+            return "redirect:/homework/list";
+        }
 
-        HomeworkSubmit homeworkSubmit = homeworkSubmitForm.toEntity();
+        Optional<HomeworkSubmit> existingSubmit = homeworkSubmitRepository.findByHomework_HomeworkIdAndUser_Id(homeworkId, userId);
 
-        //과제 데이터 저장
-        Homework savedHomework = homeworkRepository.save(homework);
+        if (existingSubmit.isPresent()) {
+            // 기존 제출 정보가 있는 경우 업데이트
+            HomeworkSubmit submitToUpdate = existingSubmit.get();
+            submitToUpdate.setHomeworkSubContent(homeworkSubmitForm.getHomeworkSubContent());
+            // 파일 업데이트를 위해 필요한 부분을 추가하세요
+             submitToUpdate.setHomeworkSubFile(homeworkSubmitForm.getHomeworkSubFile());
+            // 다른 필드 업데이트...
 
-        homeworkSubmit.setUser(loginUser);
-        homeworkSubmit.setHomework(savedHomework);
+            homeworkSubmitRepository.save(submitToUpdate);
+        } else {
+            // 기존 제출 정보가 없는 경우 새로운 제출 정보 등록
+            HomeworkSubmit homeworkSubmit = homeworkSubmitForm.toEntity();
+            homeworkSubmit.setUser(loginUser);
+            homeworkSubmit.setHomework(homework);
+            // 파일 정보를 저장하기 위한 부분을 추가하세요
+             homeworkSubmit.setHomeworkSubFile(homeworkSubmitForm.getHomeworkSubFile());
 
-        HomeworkSubmit savedHomeworkSubmit = homeworkSubmitRepository.save(homeworkSubmit);
+            homeworkSubmitRepository.save(homeworkSubmit);
+        }
 
         return "redirect:/homework/submit/" + homeworkId;
     }
+
+
 
 }
