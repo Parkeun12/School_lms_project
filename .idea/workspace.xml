@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/HomeworkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/LectureDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailNew.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailNew.html" afterDir="false" />
-    </list>
+    <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +20,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="school_lms" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -59,19 +56,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.2023-12-29-백업 [:SchoolLmsApplication.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/admin/Desktop/Test22/School_lms_project/src/main/resources/templates"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/qkrdm/git_project/2023-12-29-백업/src/main/resources/static/css",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\qkrdm\git_project\2023-12-29-백업\src\main\resources\static\css" />
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\static\css" />
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\repository" />
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\entity" />
-      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
@@ -80,6 +80,7 @@
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\dto" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.school_lms.Service" />
       <recent name="com.example.school_lms.repository" />
       <recent name="com.example.school_lms.controller" />
       <recent name="com.example.school_lms.entity" />
@@ -111,6 +112,13 @@
         <item itemvalue="Application.SchoolLmsApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-temurin-17.0.9-249ae16d76d6-579202fe" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

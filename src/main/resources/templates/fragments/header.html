@@ -12,10 +12,10 @@
             </div>
             <div class="header_text">
                 <div>
-                    <a th:href="|@{{loginType}/login (loginType=${loginType})}|" href="/visang_university/login">로그인</a>
+                    <a th:href="|@{{loginType}/login (loginType=${loginType})}|">로그인</a>
                 </div>
                 <div>
-                    <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|" href="/visang_university/mypage">나의 정보</a>
+                    <a th:href="@{/visang_university/mypage}">나의 정보</a>
                 </div>
                 <div>
                     <a href="#">강의실</a>
@@ -34,10 +34,10 @@
                 <div style="width: 150px;">
                     <span style="font-size: 23px;
                     color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
-                        <a th:href="|@{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
+                    <a th:href="|@{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
                 </div>
                 <div>
-                    <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
+                    <a href="/visang_university/mypage">나의 정보</a>
                 </div>
                 <div>
                     <a href="#">강의실</a>
@@ -45,4 +45,50 @@
             </div>
         </div>
     </div>
+    <div class="side_wrap">
+        <div class="side_header">
+            <a>강의실</a>
+        </div>
+        <div class="side_middle">
+            <a>Home</a>
+            <ul><span>강의 정보</span>
+                <li>
+                    <a href="#">수업계획서</a>
+                </li>
+
+                <li>
+                    <a href="/visang_university/lecture/regist">강의등록</a>
+                </li>
+            </ul>
+
+            <ul><span>수업 활동</span>
+                <li>
+                    <a th:href="@{/lecture_detail}">강의</a>
+                </li>
+
+                <li>
+                    <a th:href="@{/homework/list}">과제</a>
+                </li>
+            </ul>
+
+            <ul><span>커뮤니티</span>
+                <li>
+                    <a href="#">공지사항</a>
+                </li>
+
+                <li>
+                    <a href="#">Q&A</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="side_footer_f">
+            <a href="#">수강신청</a>
+        </div>
+
+        <div class="side_footer_l">
+            <a th:href="@{/visang_university/mypage}">나의 정보</a>
+        </div>
+    </div>
+</div>
 </html>
