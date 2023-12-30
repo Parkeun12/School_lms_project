@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <link href="/css/lecRegist.css" type="text/css" rel="stylesheet" th:href="@{/css/lecRegist.css}">
+</head>
+<!--스크립트 추가-->
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+
+        // 학점
+        $("#subjectScore").change(function () {
+            email();
+        });
+
+        // 시간
+        $("#subjectTime").change(function () {
+            email();
+        });
+
+        // 이수구분
+        $("#subjectClassification").change(function () {
+            email();
+        });
+
+        // 대상학년
+        $("#subjectGrade").change(function () {
+            email();
+        });
+
+        // 개설년도
+        $("#subjectYear").change(function () {
+            email();
+        });
+
+        // 강의 요일
+        $("#subjectDay").change(function () {
+            email();
+        });
+
+
+
+    </script>
+</th:block>
+
+<!-- 강의 등록  -->
+<div layout:fragment="content" class="container">
+
+    <form th:action="@{/visang_university/lecture/regist}" th:object="${lectureDto}"
+          th:method="post">
+        <div>
+            <h3> ◈ 강의 등록</h3>
+        </div>
+        <div class="table_header">
+            <table>
+                <tr th:each="u : ${user}">
+                    <th bgcolor="#eee">교과목</th>
+                    <td>
+                        <input th:field="*{subjectName}" type="text" style="width: 188px; height: 22px; border: 0;"
+                               required oninvalid="this.setCustomValidity('교과목명을 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                    <!-- 학과 이름은 교수로 부터 받아온다. -->
+                    <th bgcolor="#eee">학과</th>
+                    <td th:text="${user?.userMajor}" id="userMajor" name="userMajor">
+
+                    </td>
+                </tr>
+                <tr>
+                    <th bgcolor="#eee">학점/시간</th>
+                    <td>
+                        <select name="subjectScore" id="subjectScore" th:for="subjectScore" required
+                                oninvalid="this.setCustomValidity('학점을 선택해주세요.')" oninput="this.setCustomValidity('')">
+                            <option value="" selected>선택</option>
+                            <option value="1학점">1학점</option>
+                            <option value="2학점">2학점</option>
+                            <option value="3학점">3학점</option>
+                        </select>
+                        <input type="hidden" th:field="*{subjectScore}">
+
+                        <select name="subjectTime" id="subjectTime" th:for="subjectTime" required
+                                oninvalid="this.setCustomValidity('강의 진행 시간을 선택해주세요.')"
+                                oninput="this.setCustomValidity('')">
+                            <option value="" selected>선택</option>
+                            <option value="1시간">1시간</option>
+                            <option value="2시간">2시간</option>
+                            <option value="3시간">3시간</option>
+                            <option value="4시간">4시간</option>
+                            <option value="5시간">5시간</option>
+                            <option value="6시간">6시간</option>
+                            <option value="7시간">7시간</option>
+                            <option value="8시간">8시간</option>
+                        </select>
+                        <input type="hidden" th:field="*{subjectTime}">
+                    </td>
+                    <th bgcolor="#eee">이수구분</th>
+                    <td>
+                        <select name="subjectClassification" id="subjectClassification" th:for="subjectClassification"
+                                required oninvalid="this.setCustomValidity('강의 유형을 선택해주세요.')"
+                                oninput="this.setCustomValidity('')">
+                            <option value="" selected>선택</option>
+                            <option value="전공">전공</option>
+                            <option value="교양">교양</option>
+                            <option value="일반">일반</option>
+                        </select>
+                        <input type="hidden" th:field="*{subjectClassification}">
+                    </td>
+                </tr>
+                <tr>
+                    <th bgcolor="#eee">대상학년</th>
+                    <td>
+                        <select name="subjectGrade" id="subjectGrade" th:for="subjectGrade" required
+                                oninvalid="this.setCustomValidity('대상 학년을 선택해주세요.')" oninput="this.setCustomValidity('')">
+                            <option value="" selected>선택</option>
+                            <option value="전체">전체</option>
+                            <option value="1학년">1학년</option>
+                            <option value="2학년">2학년</option>
+                            <option value="3학년">3학년</option>
+                            <option value="4학년">4학년</option>
+                        </select>
+                        <input type="hidden" th:field="*{subjectGrade}">
+                    </td>
+                    <th bgcolor="#eee">개설년도</th>
+                    <td>
+                        <select name="subjectYear" id="subjectYear" th:for="subjectYear" required
+                                oninvalid="this.setCustomValidity('강의 개설 년도를 선택해주세요.')"
+                                oninput="this.setCustomValidity('')">
+                            <option value="" selected>선택</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                        </select>
+                        <input type="hidden" th:field="*{subjectYear}">
+
+                        <select name="subjectSemester" id="subjectSemester" th:for="subjectSemester" required
+                                oninvalid="this.setCustomValidity('학기를 선택해주세요.')" oninput="this.setCustomValidity('')">
+                            <option value="" selected>선택</option>
+                            <option value="1학기">1학기</option>
+                            <option value="2학기">2학기</option>
+                        </select>
+                        <input type="hidden" th:field="*{subjectSemester}">
+                    </td>
+                </tr>
+                <tr>
+                    <!-- 담당교원 값은 받아온다. 연락처 이메일 포함-->
+                    <th bgcolor="#eee">담당교원</th>
+                    <td th:text="${user?.userdataName}" name="userdataName" id="userdataName"></td>
+                    <th bgcolor="#eee">연락처 / 이메일</th>
+                    <td th:text="${user?.userPhone}" name="userPhone" id="userPhone"></td>
+                </tr>
+                <tr>
+                    <th bgcolor="#eee">신청 시작일</th>
+                    <td>
+                        <input type="date" th:field="*{subjectReqStart}" required
+                               oninvalid="this.setCustomValidity('신청 시작일을 선택해주세요.')" oninput="this.setCustomValidity('')">
+                    </td>
+                    <th bgcolor="#eee">학기 시작일</th>
+                    <td>
+                        <input type="date" th:field="*{subjectOpStart}" required
+                               oninvalid="this.setCustomValidity('학기 시작일을 선택해주세요.')" oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+                <tr>
+                    <th bgcolor="#eee">신청 종료일</th>
+                    <td>
+                        <input type="date" th:field="*{subjectReqEnd}" required
+                               oninvalid="this.setCustomValidity('신청 종료일을 선택해주세요.')" oninput="this.setCustomValidity('')">
+                    </td>
+
+                    <th bgcolor="#eee">학기 종료일</th>
+                    <td>
+                        <input type="date" th:field="*{subjectOpEnd}" required
+                               oninvalid="this.setCustomValidity('학기 종료일을 선택해주세요.')" oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table_content">
+            <table>
+                <tr>
+                    <th bgcolor="#eee">교과목 개요</th>
+                    <td>
+                        <input type="text" th:field="*{subjectOutline}" style="width: 383px; height: 22px; border: 0;"
+                               required oninvalid="this.setCustomValidity('교과목 개요를 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+                <tr>
+                    <th bgcolor="#eee">교과 교육목표</th>
+                    <td>
+                        <input type="text" th:field="*{subjectGoal}" style="width: 383px; height: 22px; border: 0;"
+                               required oninvalid="this.setCustomValidity('교육 목표를 입력 해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+                <tr>
+                    <th bgcolor="#eee">강의실(시간)</th>
+                    <td class="mg_left">
+                        <span>강의실 명 :</span>
+                        <input type="text" th:field="*{subjectClass}" required
+                               oninvalid="this.setCustomValidity('강의실 명을 입력해주세요.')" oninput="this.setCustomValidity('')">
+                        <br>
+                        <span> 시간 :</span>
+                        <select name="subjectDay" id="subjectDay" th:for="subjectDay" required
+                                oninvalid="this.setCustomValidity('요일을 선택해주세요.')" oninput="this.setCustomValidity('')">
+                            <option value="" selected>선택</option>
+                            <option value="월요일">월요일</option>
+                            <option value="화요일">화요일</option>
+                            <option value="수요일">수요일</option>
+                            <option value="목요일">목요일</option>
+                            <option value="금요일">금요일</option>
+                            <option value="토요일">토요일</option>
+                            <option value="일요일">일요일</option>
+                        </select>
+                        <input type="hidden" th:field="*{subjectDay}">
+                        <span>교시 :</span>
+                        <input type="text" th:field="*{subjectPeriod}" placeholder="범위를 입력해주세요. 예시) 1-4교시 5-8교시"
+                               required oninvalid="this.setCustomValidity('해당 교시를 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+                <tr>
+                    <th bgcolor="#eee">주교재</th>
+                    <td>
+                        <input type="text" th:field="*{subjectBook}" style="width: 383px; height: 22px; border: 0;"
+                               required oninvalid="this.setCustomValidity('주 교재를 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+                <tr>
+                    <th bgcolor="#eee">참고문헌 및 관련<br>
+                        인터넷 사이트
+                    </th>
+                    <td>
+                        <input type="text" th:field="*{subjectReference}"
+                               style="width: 383px; height: 40px; border: 0;">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h3> ◈ 수업 평가 방법</h3>
+        </div>
+
+        <div class="table_footer">
+            <table>
+                <tr>
+                    <th bgcolor="#eee">평가항목</th>
+                    <th bgcolor="#eee">중간고사</th>
+                    <th bgcolor="#eee">기말고사</th>
+                    <th bgcolor="#eee">과제</th>
+                    <th bgcolor="#eee">팀Project</th>
+                    <th bgcolor="#eee">출석</th>
+                </tr>
+                <tr>
+
+                    <th bgcolor="#eee">비율</th>
+                    <td>
+                        <input type="text" th:field="*{testMidterm}" style="width: 123px; height: 20px; border: 0;" required
+                               oninvalid="this.setCustomValidity('중간고사 적용 비율을 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{testFinal}" style="width: 123px; height: 20px; border: 0;" required
+                               oninvalid="this.setCustomValidity('기말고사 적용 비율을 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{testProject}" style="width: 123px; height: 20px; border: 0;" required
+                               oninvalid="this.setCustomValidity('과제 적용 비율을 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{testTeamPj}" style="width: 123px; height: 20px; border: 0;" required
+                               oninvalid="this.setCustomValidity('팀 프로젝트 적용 비율을 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{testAttend}" style="width: 123px; height: 20px; border: 0;" required
+                               oninvalid="this.setCustomValidity('출석 적용 비율을 입력해주세요.')"
+                               oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+            </table>
+            <div th:if="${showWarning}">
+                <p style="color: red;" th:text="${warningMessage}"></p>
+            </div>
+        </div>
+
+        <button type="submit" value="강의등록" id="submit" >강의등록</button>
+    </form>
+</div>
+
+</html>

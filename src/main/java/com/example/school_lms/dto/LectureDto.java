@@ -30,7 +30,7 @@ public class LectureDto {
 
     private int subjectYear; //개설년도
 
-//    private String subjectSemester; //학기
+    private String subjectSemester; //학기
 
     private String userdataName; // 교수님 성함
 

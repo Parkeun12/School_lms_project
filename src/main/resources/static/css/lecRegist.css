@@ -1,0 +1,46 @@
+h3 {
+    color: #434343;
+}
+tr, th, td {
+    border:1px solid #b7b7b7;
+    
+}
+
+.container{
+    position: relative;
+    left: 660px;
+    top: 25px;
+}
+
+table{
+    table-layout: fixed;
+    width: 780px;
+    border-collapse: collapse;
+    color: #434343;
+}
+.table_content {
+    margin-top: 10px;
+}
+select, input[type=date] {
+    padding: 2px;
+    margin: 5px;
+}
+.mg_left input {
+    margin-top: 5px;
+}
+.mg_left span {
+    margin-left: 10px;
+}
+button {
+    position: relative;
+    top: 20px;
+    left: 250px;
+    width: 200px;
+    height: 30px;
+    font-weight: 700;
+    background-color: #59bfd9;
+    color: #ddd;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+}
