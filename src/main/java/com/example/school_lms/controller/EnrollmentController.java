@@ -29,18 +29,16 @@ public class EnrollmentController{
     LectureRepository lectureRepository;
 
     @Autowired
-    EnrollmentRepository enrollmentRepository;
-
-    @Autowired
     SelectedLectureRepository selectedLectureRepository;
 
-    @Autowired
-    DetailedLectureRepository detailedLectureRepository;
     @Autowired
     SelectedLectureListRepository selectedLectureListRepository;
 
     @Autowired
     UserService userService;
+
+
+    //수정 확인용 주석
 
     @GetMapping(value = "/classHome")
     public String lecForm(@SessionAttribute(name = "userId", required = false) Long userId, Model model) {
@@ -57,15 +55,6 @@ public class EnrollmentController{
                 log.info(selectedLectureLists.toString());
                 model.addAttribute("selectedLectureLists", selectedLectureLists);
 
-//                //공지사항 데이터 전달
-//                ArrayList<Notice> notices = noticeRepository.findAll();
-//                log.info(notices.toString());
-//                model.addAttribute("notices", notices);
-//
-//                //Q&A 데이터 전달
-//                ArrayList<QnA> qnas = qnARepository.findAll();
-//                log.info(qnas.toString());
-//                model.addAttribute("qnas", qnas);
 
                 return "classHome";
             }
@@ -77,14 +66,27 @@ public class EnrollmentController{
 
     @GetMapping("/enroll") //classHome 페이지에서 수강신청 누르면 수강신청 페이지로 이동
     public String enrollment(Model model, @SessionAttribute(name = "userId", required = false) Long userId){
-        User loginUser = userService.getLoginUserById(userId);
-        if (loginUser != null){
-            model.addAttribute("loginUser", loginUser);
+
+        model.addAttribute("loginType", "visang_university");
+
+        if (userId != null) {
+            User user = userService.getLoginUserById(userId);
+            if (user != null) {
+                model.addAttribute("user", user);
+                model.addAttribute("userdataName", user.getUserdataName());
+
+                User loginUser = userService.getLoginUserById(userId);
+                if (loginUser != null){
+                    model.addAttribute("loginUser", loginUser);
+                }
+                //lecture 테이블의 데이터를 화면에 뿌려줌.
+                ArrayList<Lecture> lectureList = lectureRepository.findAll();
+                model.addAttribute("lectureList", lectureList);
+
+                return "enrollment";
+            }
         }
-        //lecture 테이블의 데이터를 화면에 뿌려줌.
-        ArrayList<Lecture> lectureList = lectureRepository.findAll();
-        model.addAttribute("lectureList", lectureList);
-        return "enrollment"; // 수강신청 페이지로 이동
+        return "redirect:/visang_university/login";
     }
 
     @PostMapping("/enroll/apply/{id}/{subid}") // 수강신청 컨트롤러 수강신청 페이지에서 수강신청 버튼을 누르면 신청한 유저의 아이디와 강의의 아이디가 DB에 저장.
@@ -108,24 +110,16 @@ public class EnrollmentController{
         ArrayList<SelectedLectureList> selectedLectureLists = selectedLectureListRepository.findByUserId(userId);
         model.addAttribute("selectedLectureLists", selectedLectureLists);
 
-//        ArrayList<Notice> notices = noticeRepository.findAll();
-//        model.addAttribute("notices", notices);
-//
-//        ArrayList<QnA> qnas = qnARepository.findAll();
-//        model.addAttribute("qnas", qnas);
 
         return "redirect:/visang_university/classHome";
     }
 
     @Transactional
-    @PostMapping(value = "/enroll/delete/{subid}")
+    @PostMapping(value = "/enroll/delete/{subid}") // 강의실Home에서 수강신청 취소하는 메소드.
     public String selLecdelete(@SessionAttribute(name = "userId", required = false) Long id, @PathVariable("subid") Long subjectId, Model model){
-        log.info(id.toString());
-        log.info(subjectId.toString());
+
         SelectedLecture target = selectedLectureRepository.findByIdAndSubjectId(id, subjectId);
-        log.info(target.toString());
         if (target != null) {
-            log.info(target.toString());
             selectedLectureRepository.delete(target);
             return "redirect:/visang_university/classHome";
         } else {
@@ -135,19 +129,36 @@ public class EnrollmentController{
     }
 
 
-
-
     @GetMapping("/enroll/lecPlan/{Id}") // 수강신청화면(기획서 11페이지) 강의 제목을 누르면 해당 강의의 상세 정보(기획서 12페이지)를 볼 수 있다.
-    public String enrollLecturePlan(@PathVariable Long Id, Model model){ // Long을 String으로 바꿨음. lectureRepository수정하면서.
-        Long subjectId = Id;
-        Lecture lecturePlan = lectureRepository.findBySubjectId(subjectId);
-        if (lecturePlan == null) {
-            String lecturePlanExcep= "SubjectIdIsNull";
-        }
-        model.addAttribute("lecturePlan", lecturePlan);
+    public String enrollLecturePlan(@SessionAttribute(name = "userId", required = false) Long userId, @PathVariable Long Id, Model model){ // Long을 String으로 바꿨음. lectureRepository수정하면서.
 
-        return "lecturePlan";
+        if (userId != null) {
+            User user = userService.getLoginUserById(userId);
+            if (user != null) {
+                model.addAttribute("user", user);
+                model.addAttribute("userdataName", user.getUserdataName());
+
+                Long subjectId = Id;
+                Lecture lecturePlan = lectureRepository.findBySubjectId(subjectId);
+                if (lecturePlan == null) {
+                    String lecturePlanExcep= "SubjectIdIsNull";
+                }
+                model.addAttribute("lecturePlan", lecturePlan);
+
+                return "lecturePlan";
+            }
+        }
+
+        return "redirect:/visang_university/login";
     }
+
+    @GetMapping("/classHome/clsHomeLecPlan")
+    public String clsHomeLecPlan(){
+        return "clsHomeLecPlan";
+    }
+
+
+
 
 }
 

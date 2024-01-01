@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VisangUni</title>
   <link href="/css/base.css" type="text/css" rel="stylesheet" />
-  <link href="/css/" />
+
 
   <style>
     #lecPlncontent{
@@ -41,22 +41,48 @@
   </style>
 </head>
 <body>
-<div class="header">
-  <div class="logo">
-    <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
-  </div>
-  <div class="header_text">
-    <div>
-      <a th:href="@{/visang_university/login}">로그인</a>
+<div th:if="${userdataName == null}">
+  <!-- 헤더 부분 -->
+  <div class="header">
+    <div class="logo">
+      <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
     </div>
-    <div>
-      <a th:href="@{/visang_university/mypage}">나의 정보</a>
-    </div>
-    <div>
-      <a href="/visang_university/classHome">강의실</a>
+    <div class="header_text">
+      <div>
+        <a th:href="|@{{loginType}/login (loginType=${loginType})}|">로그인</a>
+      </div>
+      <div>
+        <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
+      </div>
+      <div>
+        <a href="/visang_university/classHome">강의실</a>
+      </div>
     </div>
   </div>
 </div>
+<!--    로그인 했을 때-->
+<div th:unless="${userdataName == null}">
+  <!-- 헤더 부분 -->
+  <div class="header">
+    <div class="logo">
+      <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+    </div>
+    <div class="header_text">
+      <div style="width: 150px;">
+                <span style="font-size: 23px;
+                color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
+        <a th:href="|@{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
+      </div>
+      <div>
+        <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
+      </div>
+      <div>
+        <a th:href="@{/visang_university/classHome}">강의실</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="side_wrap">
   <div class="side_header">
     <a>강의실</a>
@@ -66,7 +92,7 @@
     <ul>
       <span>강의 정보</span>
       <li>
-        <a href="#">수업계획서</a>
+        <a th:href="@{/visang_university/classHome/clsHomeLecPlan}">수업계획서</a>
       </li>
 
       <li>
@@ -74,7 +100,8 @@
       </li>
     </ul>
 
-    <ul><span>수업 활동</span>
+    <ul>
+      <span>수업 활동</span>
       <li>
         <a th:href="@{/lecture_detail}">강의</a>
       </li>
@@ -101,7 +128,7 @@
   </div>
 
   <div class="side_footer_l">
-    <a th:href="@{/visang_university/mypage}">나의 정보</a>
+    <a th:href="@{/visang_university/mypage}">나의정보</a>
   </div>
 </div>
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-        <html lang="en">
-        <html xmlns:th="http://www.thymeleaf.org">
-        <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>VisangUni</title>
-    <link href="/css/base.css" type="text/css" rel="stylesheet">
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisangUni</title>
+    <link href="/css/basea.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -28,49 +28,6 @@
     </div>
 </div>
 <div class="side_wrap">
-    <div class="side_header">
-        <a>강의실</a>
-    </div>
-    <div class="side_middle">
-        <a>Home</a>
-        <ul><span>강의 정보</span>
-            <li>
-                <a href="#">수업계획서</a>
-            </li>
-
-            <li>
-                <a href="/visang_university/lecture/regist">강의등록</a>
-            </li>
-        </ul>
-
-        <ul><span>수업 활동</span>
-            <li>
-                <a th:href="@{/lecture_detail}">강의</a>
-            </li>
-
-            <li>
-                <a th:href="@{/homework/list}">과제</a>
-            </li>
-        </ul>
-
-        <ul><span>커뮤니티</span>
-            <li>
-                <a href="#">공지사항</a>
-            </li>
-
-            <li>
-                <a href="#">Q&A</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="side_footer_f">
-        <a href="/visang_university/enroll">수강신청</a>
-    </div>
-
-    <div class="side_footer_l">
-        <a th:href="@{/visang_university/mypage}">나의 정보</a>
-    </div>
 
     <!-- 나의정보 메인 중앙작업 -->
     <div>
@@ -121,7 +78,7 @@
 </div>
 </body>
 
-        </html>
+</html>
 
 <style>
 

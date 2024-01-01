@@ -121,7 +121,7 @@
                         </select>
                         <input type="hidden" th:field="*{subjectGrade}">
                     </td>
-                    <th bgcolor="#eee">개설년도</th>
+                    <th bgcolor="#eee">개설년도 / 학기</th>
                     <td>
                         <select name="subjectYear" id="subjectYear" th:for="subjectYear" required
                                 oninvalid="this.setCustomValidity('강의 개설 년도를 선택해주세요.')"
@@ -152,7 +152,7 @@
                     <!-- 담당교원 값은 받아온다. 연락처 이메일 포함-->
                     <th bgcolor="#eee">담당교원</th>
                     <td th:text="${user?.userdataName}" name="userdataName" id="userdataName"></td>
-                    <th bgcolor="#eee">연락처 / 이메일</th>
+                    <th bgcolor="#eee">연락처</th>
                     <td th:text="${user?.userPhone}" name="userPhone" id="userPhone"></td>
                 </tr>
                 <tr>

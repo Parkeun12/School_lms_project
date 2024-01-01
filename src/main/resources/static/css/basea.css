@@ -1,0 +1,183 @@
+/* 헤더 감싸는 랩 */
+/* 헤더 고정은 됐는데 뒷배경이 비춰져보임 --> 백 그라운드 주니까 윗부분 잘림 */
+.header {
+width: 1000px;
+height: 100px;
+position:fixed;
+left: 440px;
+top: 30px;
+z-index: 3;
+margin: 0 auto;
+border-bottom: 3px solid #ccc;
+}
+/* 좌측 상단 로고 이미지 */
+.logo img  {
+width: 200px;
+height: 70px;
+margin-top: 10px;
+}
+/* 로그인, 나의 정보, 강의실 */
+.header_text {
+width: 500px;
+height: 50px;
+position: absolute;
+right: -185px;
+top: 40px;
+}
+/* 글자 내부 구역 */
+.header_text div {
+display: inline-block;
+width: 120px;
+height: 30px;
+}
+/* 로그인 글자 */
+.header_text div:nth-child(1){
+width: 110px;
+height: 30px;
+margin-right: -20px;
+}
+/* 나의 정보, 강의실 글자 */
+.header_text div:nth-child(2),.header_text div:nth-child(3){
+border-left: 2px solid #ccc;
+height: 15px;
+padding: 15px;
+}
+/* 나의 정보 글자만 */
+.header_text div:nth-child(2){
+margin-left: -10px;
+}
+/* 강의실 글자만 */
+.header_text div:nth-child(3){
+margin-left: -20px;
+}
+.header_text div a {
+font-weight: 600;
+font-size: 23px;
+color:#787878;
+text-decoration: none;
+}
+/* 네비게이션 전체 감싸는 랩 */
+.side_wrap {
+/* width: 200px; */
+/* height: 645px; */
+/* border: 1px solid #ccc; */
+border-bottom: none;
+/* 헤더에 따라 위치 조정하면 됨 */
+position: fixed;
+left: 330px;
+top: 800px;
+}
+/* 강의실 */
+.side_header {
+width: 200px;
+height: 80px;
+background-color: #59bfd9;
+color: #fff;
+font-weight: 600;
+text-align: center;
+font-size: 25px;
+}
+.side_header a {
+margin-left: -80px;
+line-height: 80px;
+}
+/* Home 글자 */
+.side_middle>a{
+width: 200px;
+height: 70px;
+margin-left:20px;
+font-size: 22px;
+text-align: center;
+font-weight: 600;
+color: #3d3d3d;
+line-height: 70px;
+}
+.side_middle ul {
+margin-top: 0px;
+margin-bottom: 25px;
+}
+/* 강의 정보, 수업활동, 커뮤니티 글자 */
+.side_middle span {
+font-size: 17px;
+margin-left:-15px;
+font-weight: 600;
+color: #474747;
+}
+
+.side_middle ul li {
+margin-top: 10px;
+}
+/* 수업계획서, 강의등록, 강의, 과제, 공지사항, Q&A 글자 */
+.side_middle ul li a {
+font-size: 12px;
+font-weight: 600;
+text-decoration: none;
+color: #787878;
+margin-left:-5px;
+}
+/* 목록 태그 */
+li::marker {
+color: #787878;
+}
+/* 마우스 오버 시에 파란 글자 & 언더라인 효과 */
+.side_middle ul li a:hover {
+text-decoration: underline;
+color: #436ae8;
+}
+li:hover::marker {
+color: #436ae8;
+}
+/* 수강신청 */
+.side_footer_f {
+width: 200px;
+height: 80px;
+border: 1px solid #ccc;
+border-left: none;
+border-right: none;
+}
+.side_footer_f a, .side_footer_l a {
+margin-left:20px;
+font-size: 18px;
+text-align: center;
+font-weight: 600;
+line-height: 70px;
+text-decoration: none;
+color:#303030;
+}
+.side_footer_f a:hover, .side_footer_l a:hover{
+text-decoration: underline;
+color: #436ae8;
+}
+/* 나의정보 */
+.side_footer_l {
+width: 200px;
+height: 80px;
+border: 1px solid #ccc;
+border-top: none;
+border-left: none;
+border-right: none;
+}
+/* 푸터부분 */
+.footer {
+width: 1000px;
+height: 100px;
+background-color: #ccc;
+margin: 0 auto;
+position: absolute;
+top: 800px;
+left: 450px;
+}
+.menu a {
+text-decoration: none;
+color: #000;
+
+}
+.menu a:hover{
+color: #436ae8;
+font-weight: 700;
+}
+.footer_wrap {
+position: absolute;
+top: 10px;
+left: 240px;
+}
