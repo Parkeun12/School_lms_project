@@ -37,7 +37,7 @@
 /* 글자 내부 구역 */
 .header_text div {
     display: inline-block;
-    width: 120px;
+    width: 150px;
     height: 30px;
 }
 /* 로그인 글자 */
@@ -298,7 +298,7 @@ header{
 /* 여기까지 검색상자 CSS */
 hr{
   width: 70%;
-  margin-left: 15%; margin-top: 1.5%;
+  margin-left:15%; margin-top: 1.5%;
 }
 .content_wrap{
   margin-left: 10%;
@@ -343,14 +343,16 @@ a{
             <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
         </div>
         <div class="header_text">
-            <div>
-                <a th:href="@{/visang_university/login}">로그인</a>
+            <div style="width: 150px;">
+                <span style="font-size: 23px;
+                color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
+                <a th:href="|@{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
             </div>
             <div>
-                <a th:href="@{/visang_university/mypage}">나의 정보</a>
+                <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
             </div>
             <div>
-                <a href="/visang_university/classHome">강의실</a>
+                <a th:href="@{/visang_university/classHome}">강의실</a>
             </div>
         </div>
     </div>
@@ -364,11 +366,11 @@ a{
         <ul>
             <span>강의 정보</span>
             <li>
-                <a href="#">수업계획서</a>
+                <a th:href="@{/visang_university/classHome/clsHomeLecPlan}">수업계획서</a>
             </li>
 
             <li>
-                <a href="#">강의등록</a>
+                <a href="/visang_university/lecture/regist">강의등록</a>
             </li>
         </ul>
 
@@ -376,12 +378,12 @@ a{
             <span>수업 활동</span>
             <li>
                 <div >
-                    <a href="/visang_university/enroll/selectedList">강의</a>
+                    <a th:href="@{/lecture_detail}">강의</a>
                 </div>
             </li>
 
             <li>
-                <a href="#">과제</a>
+                <a th:href="@{/homework/list}">과제</a>
             </li>
         </ul>
 
@@ -402,7 +404,7 @@ a{
     </div>
 
     <div class="side_footer_l">
-        <a href="#">나의정보</a>
+        <a th:href="@{/visang_university/mypage}">나의정보</a>
     </div>
 </div>
 

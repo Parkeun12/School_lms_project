@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VisangUni</title>
+    <link href="/css/base.css" type="text/css" rel="stylesheet" />
+
+
+    <style>
+        #lecPlncontent{
+          position: absolute;
+          top: 200px;
+          left: 700px;
+        }
+        #tbl1 {
+          width: 720px;
+        }
+        .tbl1th {
+          width: 73px;
+        }
+        .tbl1td {
+          width: 250px;
+        }
+        #tbl2 {
+          width: 720px;
+        }
+        .tbl2th {
+          width: 73px;
+        }
+        .tbl4 {
+          width: 720px;
+        }
+        .evalLecture {
+          width: 720px;
+        }
+        .tbl4 th {
+          width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div th:if="${userdataName == null}">
+    <!-- 헤더 부분 -->
+    <div class="header">
+        <div class="logo">
+            <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+        <div class="header_text">
+            <div>
+                <a th:href="|@{{loginType}/login (loginType=${loginType})}|">로그인</a>
+            </div>
+            <div>
+                <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
+            </div>
+            <div>
+                <a href="/visang_university/classHome">강의실</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--    로그인 했을 때-->
+<div th:unless="${userdataName == null}">
+    <!-- 헤더 부분 -->
+    <div class="header">
+        <div class="logo">
+            <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+        <div class="header_text">
+            <div style="width: 150px;">
+                <span style="font-size: 23px;
+                color:#787878; font-weight: 600; margin-left:-50px;">[[${userdataName}]]</span>
+                <a th:href="|@{{loginType}/logout (loginType=${loginType})}|"><b style="font-size: 15px;" >로그아웃</b></a>
+            </div>
+            <div>
+                <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
+            </div>
+            <div>
+                <a th:href="@{/visang_university/classHome}">강의실</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="side_wrap">
+    <div class="side_header">
+        <a>강의실</a>
+    </div>
+    <div class="side_middle">
+        <a>Home</a>
+        <ul>
+            <span>강의 정보</span>
+            <li>
+                <a th:href="@{/visang_university/classHome/clsHomeLecPlan}">수업계획서</a>
+            </li>
+
+            <li>
+                <a href="/visang_university/lecture/regist">강의등록</a>
+            </li>
+        </ul>
+
+        <ul>
+            <span>수업 활동</span>
+            <li>
+                <a th:href="@{/lecture_detail}">강의</a>
+            </li>
+
+            <li>
+                <a th:href="@{/homework/list}">과제</a>
+            </li>
+        </ul>
+
+        <ul>
+            <span>커뮤니티</span>
+            <li>
+                <a href="#">공지사항</a>
+            </li>
+
+            <li>
+                <a href="#">Q&A</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="side_footer_f">
+        <a href="/visang_university/enroll">수강신청</a>
+    </div>
+
+    <div class="side_footer_l">
+        <a th:href="@{/visang_university/mypage}">나의정보</a>
+    </div>
+</div>
+
+
+<!--  여기부터 lecture 데이터 넣기  -->
+<div id="lecPlncontent">
+    <!-- 여기부터 lecturePlanTable -->
+    <div class="lecturePlanTable1">
+        <table id="tbl1" border="1">
+            <tr>
+                <th class="tbl1th">교과목</th>
+                <td class="tbl1td">
+                    <span>웹프로그래밍1</span>
+                </td>
+                <!-- 학과 이름은 교수로 부터 받아온다. -->
+                <th class="tbl1th">학과</th>
+                <td>
+                    <span>컴공</span>
+                </td>
+            </tr>
+            <tr>
+                <th>학점/시간</th>
+                <td>
+
+                    <span>2</span>
+                    /
+                    <span >2</span>
+                </td>
+                <th>이수구분</th>
+                <td>
+                    <span>전공</span>
+                </td>
+            </tr>
+            <tr>
+                <th>대상학년</th>
+                <td>
+                    <span>1</span>
+                </td>
+                <th>개설년도</th>
+                <td>
+                    <span >2023</span>
+                </td>
+            </tr>
+            <tr>
+                <!-- 담당교원 값은 받아온다. 연락처 이메일 포함-->
+                <th>담당교원</th>
+                <td>
+                    <span>김교수</span>
+                </td>
+                <th>연락처</th>
+                <td>
+                    <span >01000001111</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="lecturePlanTable-detail">
+        <table id="tbl2" border="1px">
+            <tr>
+                <th class="tbl2th">교과목 개요</th>
+                <td>
+                    <span >웹 프로그래밍 입문</span>
+                </td>
+            </tr>
+            <tr>
+                <th>교과교육목표</th>
+                <td>
+                    <span >자바를 사용한 기본적인 웹 프로그래밍 기초 학습</span>
+                </td>
+            </tr>
+            <tr>
+                <th>강의실(시간)</th>
+                <td>
+                    강의실명 :
+                    <span >선문1</span>
+                    <br />
+                    요일 :
+
+                    <span >월요일</span>
+
+                    교시 :
+                    <span>1-2교시</span>
+                </td>
+            </tr>
+            <tr>
+                <th>주교재</th>
+                <td>
+                    <span >책1</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    참고문헌 및 관련<br />
+                    인터넷 사이트
+                </th>
+                <td>
+                    <span>챗지피티1</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>수업 평가 방법</h3>
+
+    <div class="evalLecture">
+        <table class="tbl4" border="1">
+            <tr>
+                <th>평가항목</th>
+                <th>중간고사</th>
+                <th>기말고사</th>
+                <th>과 제</th>
+                <th>팀Project</th>
+                <th>출석</th>
+            </tr>
+            <tr>
+                <th>비율</th>
+                <td>
+                    <span >20</span>
+                </td>
+                <td>
+                    <span >20</span>
+                </td>
+                <td>
+                    <span >20</span>
+                </td>
+                <td>
+                    <span >20</span>
+                </td>
+                <td>
+                    <span >20</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--  여기까지 데이터 받기  -->
+
+    <div class="footer">
+        <div class="footer_wrap" style="text-align: center">
+            <div class="menu">
+                <a
+                        href="#"
+                        onclick="javascript:window.open('/Account/UsingInfo', 'usinginfo', 'width=800, height=500, scrollbars=no'); Prevent();"
+                        title="이용약관"
+                >이용약관</a
+                >&nbsp;|&nbsp;<a
+                    href="#"
+                    onclick="javascript:window.open('https://www.deu.ac.kr/www/content/61'); Prevent();"
+                    title="개인정보처리방침"
+            >개인정보처리방침</a
+            >
+            </div>
+            <div class="address">
+                47340 부산광역시 부산진구 엄광로 176 (교육혁신본부) / TEL.
+                051-111-2222
+            </div>
+            <div class="copyright">
+                COPYRIGHT 2017 BI-SANG UNIVERSITY. ALL RIGHT RESERVED.
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

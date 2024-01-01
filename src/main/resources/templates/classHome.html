@@ -317,6 +317,7 @@ header{
 position: relative;
 left: 660px;
 top: 100px
+
 }
 tr {
       width: 50px;
@@ -325,7 +326,7 @@ tr {
       padding: 0;
     }
     th {
-      width: 105px;
+      width: 155px;
       height: 20px;
       margin: 0;
       padding: 0;
@@ -338,11 +339,12 @@ tr {
       border-bottom: 1px solid;
       margin: 0;
       padding: 0;
+      text-align: center;
     }
 
 hr{
-  width: 70%;
-  margin-left: 15%; margin-top: 1.5%;
+  width: 100%;
+  margin-top: 1.5%;
 }
 .content_wrap{
   margin-left: 10%;
@@ -354,7 +356,7 @@ a{
   color: white;
 }
 .additionalBox {
-      width: 720px;
+      width: 780px;
       height: 200px;
       position: relative;
       top: 400px;
@@ -416,7 +418,7 @@ a{
         <ul>
             <span>강의 정보</span>
             <li>
-                <a href="#">수업계획서</a>
+                <a th:href="@{/visang_university/classHome/clsHomeLecPlan}">수업계획서</a>
             </li>
 
             <li>
@@ -428,7 +430,7 @@ a{
             <span>수업 활동</span>
             <li>
                 <div >
-                    <a href="/visang_university/enroll/selectedList">강의</a>
+                    <a th:href="@{/lecture_detail}">강의</a>
                 </div>
             </li>
 
@@ -495,7 +497,7 @@ a{
 <!-- ---------------------여기부터 공지 & Q&A ------------------- -->
 
 <div class="additionalBox">
-    <div style="width: 330px">
+    <div style="width: 360px">
         <!--강의공지-->
         <div>
             최근 강의 공지
@@ -512,7 +514,7 @@ a{
     </div>
     <div style="width: 60px"></div>
     <!--빈공간-->
-    <div style="width: 330px">
+    <div style="width: 360px">
         <!--Q*A-->
         <div>
             최근 강의 Q&A

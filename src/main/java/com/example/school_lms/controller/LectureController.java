@@ -51,7 +51,8 @@ public class LectureController {
 
     //강의등록 맵핑
     @PostMapping(value = "/lecture/regist")
-    public String lecRegist(LectureDto lectureDto, @SessionAttribute (name="userId") Long userId, Model model){
+    public String lecRegist(LectureDto lectureDto,
+                            @SessionAttribute (name="userId") Long userId, Model model){
 
         //User 정보 가져오기
         User user = userService.getLoginUserById(userId);
@@ -92,6 +93,10 @@ public class LectureController {
 
         // User 정보 설정 // Join 해놔서 User세팅을 할 수 있음
         lecture.setUserId(user);
+        lecture.setUserdataName(user.getUserdataName());
+        lecture.setUserPhone(user.getUserPhone());
+        lecture.setUserMajor(user.getUserMajor());
+
 
         // Lecture 저장
         lectureService.saveLecture(lecture);
