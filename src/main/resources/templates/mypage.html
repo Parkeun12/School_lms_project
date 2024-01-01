@@ -23,7 +23,7 @@
             <a th:href="@{/visang_university/mypage}">나의 정보</a>
         </div>
         <div>
-            <a href="#">강의실</a>
+            <a href="/visang_university/classHome">강의실</a>
         </div>
     </div>
 </div>
@@ -39,17 +39,17 @@
             </li>
 
             <li>
-                <a href="#">강의등록</a>
+                <a href="/visang_university/lecture/regist">강의등록</a>
             </li>
         </ul>
 
         <ul><span>수업 활동</span>
             <li>
-                <a href="#">강의</a>
+                <a th:href="@{/lecture_detail}">강의</a>
             </li>
 
             <li>
-                <a href="#">과제</a>
+                <a th:href="@{/homework/list}">과제</a>
             </li>
         </ul>
 
@@ -65,11 +65,11 @@
     </div>
 
     <div class="side_footer_f">
-        <a href="#">수강신청</a>
+        <a href="/visang_university/enroll">수강신청</a>
     </div>
 
     <div class="side_footer_l">
-        <a href="#">나의정보</a>
+        <a th:href="@{/visang_university/mypage}">나의 정보</a>
     </div>
 
     <!-- 나의정보 메인 중앙작업 -->

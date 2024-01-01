@@ -1,66 +1,475 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorate="~{layouts/layout}">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link th:href="@{/css/base.css}" type="text/css" href="/css/base.css" rel="stylesheet">
-    <link th:href="@{/css/enrollment.css}"  type="text/css" href="/css/enrollment.css" rel="stylesheet" >
+
+    <style>
+        /* 헤더 감싸는 랩 */
+/* 헤더 고정은 됐는데 뒷배경이 비춰져보임 --> 백 그라운드 주니까 윗부분 잘림 */
+.header {
+    width: 1000px;
+    height: 100px;
+    position:relative;
+    left: -10px;
+    top: 20px;
+    z-index: 3;
+    margin: 0 auto;
+    border-bottom: 3px solid #ccc;
+}
+/* 좌측 상단 로고 이미지 */
+.logo img  {
+    width: 200px;
+    height: 70px;
+    margin-top: 10px;
+}
+/* 로그인, 나의 정보, 강의실 */
+.header_text {
+    width: 500px;
+    height: 50px;
+    position: absolute;
+    right: -185px;
+    top: 40px;
+}
+/* 글자 내부 구역 */
+.header_text div {
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+}
+/* 로그인 글자 */
+.header_text div:nth-child(1){
+    width: 110px;
+    height: 30px;
+    margin-right: -20px;
+}
+/* 나의 정보, 강의실 글자 */
+.header_text div:nth-child(2),.header_text div:nth-child(3){
+    border-left: 2px solid #ccc;
+    height: 15px;
+    padding: 15px;
+}
+/* 나의 정보 글자만 */
+.header_text div:nth-child(2){
+    margin-left: -10px;
+}
+/* 강의실 글자만 */
+.header_text div:nth-child(3){
+    margin-left: -20px;
+}
+.header_text div a {
+    font-weight: 600;
+    font-size: 23px;
+    color:#787878;
+    text-decoration: none;
+}
+/* 네비게이션 전체 감싸는 랩 */
+.side_wrap {
+    width: 200px;
+    height: 645px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    /* 헤더에 따라 위치 조정하면 됨 */
+    position: fixed;
+    left: 450px;
+    top: 150px;
+}
+/* 강의실 */
+.side_header {
+    width: 200px;
+    height: 80px;
+    background-color: #59bfd9;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    font-size: 25px;
+}
+.side_header a {
+   margin-left: -80px;
+    line-height: 80px;
+}
+/* Home 글자 */
+.side_middle>a{
+    width: 200px;
+    height: 70px;
+    margin-left:20px;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    color: #3d3d3d;
+    line-height: 70px;
+}
+.side_middle ul {
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+/* 강의 정보, 수업활동, 커뮤니티 글자 */
+.side_middle span {
+    font-size: 17px;
+    margin-left:-15px;
+    font-weight: 600;
+    color: #474747;
+}
+
+.side_middle ul li {
+    margin-top: 10px;
+}
+/* 수업계획서, 강의등록, 강의, 과제, 공지사항, Q&A 글자 */
+.side_middle ul li a {
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #787878;
+    margin-left:-5px;
+}
+/* 목록 태그 */
+li::marker {
+    color: #787878;
+  }
+/* 마우스 오버 시에 파란 글자 & 언더라인 효과 */
+.side_middle ul li a:hover {
+    text-decoration: underline;
+    color: #436ae8;
+  }
+li:hover::marker {
+    color: #436ae8;
+}
+/* 수강신청 */
+.side_footer_f {
+    width: 200px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+}
+.side_footer_f a, .side_footer_l a {
+    margin-left:20px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+    line-height: 70px;
+    text-decoration: none;
+    color:#303030;
+}
+.side_footer_f a:hover, .side_footer_l a:hover{
+    text-decoration: underline;
+    color: #436ae8;
+  }
+/* 나의정보 */
+.side_footer_l {
+    width: 200px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+/* 푸터부분 */
+.footer {
+    width: 1000px;
+    height: 100px;
+    background-color: #ccc;
+    margin: 0 auto;
+    position: absolute;
+    top: 800px;
+    left: 450px;
+}
+.menu a {
+    text-decoration: none;
+    color: #000;
+
+}
+.menu a:hover{
+    color: #436ae8;
+    font-weight: 700;
+}
+.footer_wrap {
+    position: absolute;
+    top: 10px;
+    left: 240px;
+}
+        *{margin: 0;
+  padding: o;
+  box-sizing: border-box;
+
+}
+.inner{
+  width: 57%;
+  margin-top: 6%;
+  margin-left: 27%;
+  height: 1000px;
+}
+header{
+  height: 200px;
+
+}
+.content{
+  display: flex;
+  position: relative;
+  left: 660px;
+  top: 10px;
+
+}
+.first{
+  position: relative;
+  top:20px;
+  width: 49%;
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  display: inline-block;
+  position:relative;
+}
+#first_app_available{
+  background-color: #2ECC71;
+  width: 100px;
+  color: white;
+  margin-top: 20px;
+  margin-left: 11%;
+  text-align: center;
+  display: inline;
+}
+#first_title{
+  margin-left: 3%;
+  width: 200px;
+  display: inline;
+}
+#first_app_period{
+  margin-left: 11%;
+}
+#first_oper_period{
+  margin-left: 11%;
+}
+
+.second{
+  position: relative;
+  top:0px;
+  width: 49%;
+  height: 64px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 64px;
+}
+.second_appbtn{
+  background: #2ECC71;
+  margin:auto;
+  border: 0;
+  border-radius: 10px;
+  height: 24px;
+  width: 100px;
+  color: white;
+
+
+}
+/* 여기서부터 검색상자 CSS */
+.search_box{
+  display: flex;
+  justify-content: center;
+}
+.search_box_background{
+  width: 70%;
+  height: 40px;
+  margin-top:5%;
+  background-color: rgb(226, 225, 225);
+  display: flex;
+  justify-content: center;
+}
+#search_box_input{
+
+  width: 60%;
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 10%;
+}
+#search_box_button{
+  background: #3498DB;
+  margin: 8px 0px 0px 8%;
+  border: 0;
+  border-radius: 10px;
+  height: 24px;
+  width: 100px;
+}
+/* 여기까지 검색상자 CSS */
+hr{
+  width: 70%;
+  margin-left: 15%; margin-top: 1.5%;
+}
+.content_wrap{
+  margin-left: 10%;
+  width: 80%;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+/* 신청가능 박스랑 신청 버튼 색깔 #2ECC71 */
+/* 검색버튼 색깔 #3498DB */
+    </style>
 </head>
+
+
 <body>
+<div th:if="${userdataName == null}">
+    <!-- 헤더 부분 -->
+    <div class="header">
+        <div class="logo">
+            <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+        <div class="header_text">
+            <div>
+                <a th:href="|@{{loginType}/login (loginType=${loginType})}|">로그인</a>
+            </div>
+            <div>
+                <a th:href="|@{{loginType}/mypage (loginType=${loginType})}|">나의 정보</a>
+            </div>
+            <div>
+                <a href="/visang_university/classHome">강의실</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--    로그인 했을 때-->
+<div th:unless="${userdataName == null}">
+    <!-- 헤더 부분 -->
+    <div class="header">
+        <div class="logo">
+            <a th:href="@{/visang_university}"><img src="/images/logo.png" alt="학교로고"></a>
+        </div>
+        <div class="header_text">
+            <div>
+                <a th:href="@{/visang_university/login}">로그인</a>
+            </div>
+            <div>
+                <a th:href="@{/visang_university/mypage}">나의 정보</a>
+            </div>
+            <div>
+                <a href="/visang_university/classHome">강의실</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="side_wrap">
+    <div class="side_header">
+        <a>강의실</a>
+    </div>
+    <div class="side_middle">
+        <a>Home</a>
+        <ul>
+            <span>강의 정보</span>
+            <li>
+                <a href="#">수업계획서</a>
+            </li>
+
+            <li>
+                <a href="#">강의등록</a>
+            </li>
+        </ul>
+
+        <ul>
+            <span>수업 활동</span>
+            <li>
+                <div >
+                    <a href="/visang_university/enroll/selectedList">강의</a>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">과제</a>
+            </li>
+        </ul>
+
+        <ul>
+            <span>커뮤니티</span>
+            <li>
+                <a href="#">공지사항</a>
+            </li>
+
+            <li>
+                <a href="#">Q&A</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="side_footer_f">
+        <a href="/visang_university/enroll">수강신청</a>
+    </div>
+
+    <div class="side_footer_l">
+        <a href="#">나의정보</a>
+    </div>
+</div>
 
 <div layout:fragment="content">
-<div class="wrap">
-    <div class="inner">
+    <div class="wrap">
+        <div class="inner">
 
-        <!-- 검색 박스 시작 -->
-        <div class="search_box">
-            <div class="search_box_background">
-                <input id="search_box_input" type="text" placeholder="내용을 입력해주세요.">
-                <button id="search_box_button">검색</button>
-            </div>
-        </div>
-        <!-- 검색박스 종료 -->
-
-        <hr>
-
-        <!-- 신청가능 상태와 제목 및 날짜, 신청 버튼 시작 -->
-        <div th:each="lecture : ${lectureList}" class="content_wrap"> <!-- 리스트 정보를 불러왔을때 최근 연도 최근 학기인 경우의 정보만 보여줘야한다. js 기능 넣기 -->
-
-            <!-- 신청가능 상태를 나타내는 박스 -->
-            <div  class="first" >
-                <div id="first_app_available" >신청가능</div> <!--신청가능 버튼-->
-                <div id="first_title"><a th:href="@{/enroll/lecPlan/{Id}(Id=${lecture.subjectId})}"> <span th:text="${lecture.subjectName}"></span></a></div> <!-- 여기 수강과목 제목이 들어감. 신청가능 박스 옆에 <span th:text="${data}">데이터 받을 자리 표시-->
-                <div id="first_app_period">신청기간 : <span th:text="${lecture.subjectReqStart} + '~' + ${lecture.subjectReqEnd}"></span></div>
-                <div id="first_oper_period">운영기간 : <span th:text="${lecture.subjectOpStart} + '~' + ${lecture.subjectOpEnd}"></span></div>
-            </div>
-
-            <!-- 수강 버튼 시작 -->
-            <div class="second" >
-<!--                <form method="get" action="/enroll/apply/{subjectId}(subjectId=${lecture.subjectId})/{id}(id=${})">-->
-                    <form method="post" action="/enroll/apply">
-<!--        수강 버튼을 눌렀을 때 form에서는 필요한 데이터를 보내줘야하고 DB에 해당 값이 없으면 DB에 저장되어야 하며, 업데이트된 DB가 다시 화면에 보여져야 한다.          -->
-                <button class="second_appbtn">
-                    신청
-                </button>
-                </form>
-            </div>
-            <!-- 수강 버튼 종료 -->
             <hr>
 
+            <!--         신청가능 상태와 제목 및 날짜, 신청 버튼 시작-->
+            <div th:each="lecture : ${lectureList}"  class="content_wrap" > <!-- -->
+                <!-- 신청가능 상태를 나타내는 박스   여기서 id값이 공란으로 뜨는 이유  -->
+                <!--            th:unless="${userdataName == null}"-->
+                <form method="post" th:action="@{/visang_university/enroll/apply/{id}/{subid}(id=${loginUser.id},subid=${lecture.subjectId})}"><!--수강신청 url 폼 여기에서 문제점은 id값이 user의 id라는 점이다 그래서 값을 받아오지 못했다.-->
+                    <div  class="first" >
+                        <div id="first_app_available" >신청가능</div> <!--신청가능 버튼-->
+                        <div id="first_title">
+                            <a style="color: black" th:href="@{/visang_university/enroll/lecPlan/{Id}(Id=${lecture.subjectId})}">
+                                <span th:text="${lecture.subjectName}"></span></a></div> <!-- 여기 수강과목 제목이 들어감. 신청가능 박스 옆에 <span th:text="${data}">데이터 받을 자리 표시-->
+                        <div id="first_app_period">신청기간 : <span th:text="${lecture.subjectReqStart} + '~' + ${lecture.subjectReqEnd}"></span></div>
+                        <div id="first_oper_period">운영기간 : <span th:text="${lecture.subjectOpStart} + '~' + ${lecture.subjectOpEnd}"></span></div>
+                    </div>
+                    <!-- 수강 버튼 시작 -->
+                    <div class="second" >
+                        <!--                <form method="get" action="/enroll/apply/{subjectId}(subjectId=${lecture.subjectId})/{id}(id=${})">-->
+                        <!--        수강 버튼을 눌렀을 때 form에서는 필요한 데이터를 보내줘야하고 DB에 해당 값이 없으면 DB에 저장되어야 하며, 업데이트된 DB가 다시 화면에 보여져야 한다.          -->
+                        <button class="second_appbtn">
+                            수강신청
+                        </button>
+                    </div>
+                </form>
+                <!-- 수강 버튼 종료 -->
+                <hr>
+            </div>
+
         </div>
+
+        <!--    <div th:each="lecture : ${lectureList}" class="content_wrap">-->
+        <!--        <div><span th:text="${lecture.subjectName}"></span></div>-->
+        <!--        <div><span th:text="${lecture.subjectReqStart}"></span></div>-->
+        <!--        <div><span th:text="${lecture.subjectReqEnd}"></span></div>-->
+        <!--        <div><span th:text="${lecture.subjectOpStart}"></span></div>-->
+        <!--        <div><span th:text="${lecture.subjectOpEnd}"></span></div>-->
+        <!--    </div>-->
+        <!--    <div th:each="loginUser : ${loginUser}" >-->
+        <!--        <span th:text="${loginUser.id}"></span>-->
+        <!--    </div>-->
+
         <!-- 신청가능 상태와 제목 및 날짜, 신청 버튼 종료 -->
 
 
 
-    </div>
-    <!-- 신청가능 상태와 제목 및 날짜, 신청 버튼 종료 -->
-    <hr>
 
-</div>
+        <!-- 신청가능 상태와 제목 및 날짜, 신청 버튼 종료 -->
+
+
+    </div>
 </div>
 
 </body>
 </html>
+
+<!-- 검색 박스 시작 -->
+<!--        <div class="search_box">-->
+<!--            <div class="search_box_background">-->
+<!--                <input id="search_box_input" type="text" placeholder="내용을 입력해주세요.">-->
+<!--                <button id="search_box_button">검색</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!-- 검색박스 종료 -->

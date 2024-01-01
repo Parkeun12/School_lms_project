@@ -1,0 +1,101 @@
+.content {
+  width: 720px;
+  height: auto;
+  position: relative;
+  top: 40px;
+  left: 660px;
+}
+.lectureSelect {
+  width: 720px;
+  height: 36px;
+  display: flex;
+  background-color: rgb(196, 196, 196);
+}
+.lectureSelect #box1 {
+  width: 300px;
+  height: 30px;
+  position: relative;
+  top: 2px;
+  line-height: 30px;
+}
+.lectureSelect #box2 {
+  width: 400px;
+  height: 30px;
+  position: relative;
+  top: 2px;
+  left: 10px;
+  line-height: 30px;
+}
+.question-btn {
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 4px;
+}
+.redFont1 {
+  width: 620px;
+  font-size: x-small;
+  position: relative;
+  top: 5px;
+  color: red;
+}
+.redFont2 {
+  font-size: x-small;
+  position: relative;
+  top: 27px;
+  color: red;
+  text-decoration: none;
+}
+.blueFont {
+  position: relative;
+  top: 7px;
+  color: blue;
+  font-size: x-small;
+}
+
+tr {
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+  padding: 0;
+}
+th {
+  width: 10px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid;
+  font-size: small;
+  background-color: rgb(192, 192, 192);
+}
+td {
+  height: 20px;
+  border-bottom: 1px solid;
+  margin: 0;
+  padding: 0;
+}
+.tdno2 {
+  border: 1px solid;
+  border-bottom: none;
+  position: relative;
+  top: -1px;
+}
+.tdno7 {
+  border-right: 1px solid;
+}
+.additionalBox {
+  width: 720px;
+  height: 200px;
+  position: relative;
+  top: 70px;
+  left: 660px;
+  display: flex;
+}

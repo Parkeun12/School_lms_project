@@ -4,7 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="" />
+    <list default="true" id="b0dbeb97-a6d3-4fe6-8868-fa909d91cc0f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/SelectedLectureListRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/classHome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/classHomeAndDL.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/enrollment.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/enrollmentList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/houseicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/errorPage/duplicateEnrollment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/controller/EnrollmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/SelectedLectureDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/SelectedLectureDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/SelectedLectureListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/dto/SelectedLectureListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/SelectedLecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/SelectedLecture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/SelectedLectureList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/entity/SelectedLectureList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/EnrollmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/EnrollmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/SelectedLectureDetailRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/SelectedLectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/SelectedLectureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/school_lms/repository/StudentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/classHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/classHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/enrollment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/enrollment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwCreate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwListStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwListStudent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwSubmit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwSubmit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hwSubmitStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hwSubmitStudent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/join.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecturePlan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecturePlan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailList2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailNew.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lecture_detailNew.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mypage.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,21 +90,22 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.2023-12-29-백업 [:SchoolLmsApplication.main()].executor": "Run",
+    "Gradle.School_lms_project [:SchoolLmsApplication.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "eunchae",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/qkrdm/git_project/2023-12-29-백업/src/main/resources/static/css",
+    "last_opened_file_path": "C:/Users/qkrdm/git_project/School_lms_project 최근버전",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\qkrdm\OneDrive\문서\GitHub\School_lms_project\src\main\resources\templates\errorPage" />
+      <recent name="C:\Users\qkrdm\OneDrive\문서\GitHub\School_lms_project\src\main\resources\static\css" />
+      <recent name="C:\Users\qkrdm\OneDrive\문서\GitHub\School_lms_project\src\main\resources\static\images" />
       <recent name="C:\Users\qkrdm\git_project\2023-12-29-백업\src\main\resources\static\css" />
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
-      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\static\css" />
-      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\repository" />
-      <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\entity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\resources\templates" />
@@ -80,8 +114,8 @@
       <recent name="C:\Users\admin\Desktop\Test22\School_lms_project\src\main\java\com\example\school_lms\dto" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.school_lms.Service" />
       <recent name="com.example.school_lms.repository" />
+      <recent name="com.example.school_lms.Service" />
       <recent name="com.example.school_lms.controller" />
       <recent name="com.example.school_lms.entity" />
       <recent name="com.example.school_lms.dto" />

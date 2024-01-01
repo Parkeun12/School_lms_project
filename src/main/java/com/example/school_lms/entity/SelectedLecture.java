@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+
 @Entity
+@Table(name = "selected_lecture")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -18,12 +20,13 @@ public class SelectedLecture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long selectedId;
 
-    @ManyToOne
-    private Lecture subjectId;
+    @Column(name = "id")
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private Student id;
+    @Column(name = "subject_id")
+    private Long subjectId;
+
+
 
 
 }

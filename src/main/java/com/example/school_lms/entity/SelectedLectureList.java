@@ -19,15 +19,15 @@ public class SelectedLectureList {
     @Id
     @Column
 
-    private String subjectName;
-    
-    private String subjectId; // repository에도 추가
+    private int subjectId;
 
-    private String subjectClassification;
 
-    private String userName;
+    private String subjectName; // 교과목명
 
-    private int lectureSelType;
+    private String subjectClassification;  //구분
+
+    private String userdataName;  // 담당교수 이름으로
+
 
 }
 // DB에서 값을 가지고 오기 위한 엔티티.

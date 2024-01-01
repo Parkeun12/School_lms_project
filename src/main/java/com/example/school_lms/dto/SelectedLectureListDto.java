@@ -2,38 +2,30 @@ package com.example.school_lms.dto;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Getter
 @Setter
-
+@NoArgsConstructor
 public class SelectedLectureListDto {
 
 
-    private String subjectId;
-    private String subjectClassification;
-    private String userName;
-    private int lectureSelType;
+    private String subjectName; // 교과목명
 
-    public SelectedLectureListDto(String subject_id, String subject_classification, String user_name, int lecture_sel_type) {
+    private String subjectClassification;  //구분
 
-        this.subjectId = subject_id;
+    private String userdataName;  // 담당교수 이름으로
+
+
+    public SelectedLectureListDto(String subject_name, String subject_classification, String userdata_name) {
+
+        this.subjectName = subject_name;
         this.subjectClassification = subject_classification;
-        this.userName = user_name;
-        this.lectureSelType = lecture_sel_type;
+        this.userdataName = userdata_name;
+
     }
 
-//    public SelectedLectureListDto(Object[] tuple) {
-//        // Assuming tuple[0] is of type int
-//        this.subjectClassification = String.valueOf(tuple[0]);
-//        this.subjectId = (String) tuple[1];
-//        this.userName = (String) tuple[2];
-//        // Assuming tuple[3] is of type int
-//        this.lectureSelType = (int) tuple[3];
-//    }
 
-    public SelectedLectureListDto() {
-        // 기본 생성자
-    }
 }
