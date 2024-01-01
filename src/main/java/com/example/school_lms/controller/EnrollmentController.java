@@ -1,22 +1,30 @@
 package com.example.school_lms.controller;
 
-import com.example.school_lms.entity.Lecture;
-import com.example.school_lms.entity.LectureDetail;
-import com.example.school_lms.entity.SelectedLectureList;
+import com.example.school_lms.Service.UserService;
+import com.example.school_lms.dto.SelectedLectureDto;
+import com.example.school_lms.entity.*;
 import com.example.school_lms.repository.*;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.ArrayList;
 
 @Controller
 @Slf4j
-public class EnrollmentController {
+@RequestMapping("/visang_university")
+public class EnrollmentController{
+
     @Autowired
     LectureRepository lectureRepository;
 
@@ -27,43 +35,107 @@ public class EnrollmentController {
     SelectedLectureRepository selectedLectureRepository;
 
     @Autowired
-    StudentRepository studentRepository;
+    DetailedLectureRepository detailedLectureRepository;
+    @Autowired
+    SelectedLectureListRepository selectedLectureListRepository;
 
     @Autowired
-    DetailedLectureRepository detailedLectureRepository;
+    UserService userService;
+
+    @GetMapping(value = "/classHome")
+    public String lecForm(@SessionAttribute(name = "userId", required = false) Long userId, Model model) {
+
+        model.addAttribute("loginType", "visang_university");
+
+        if (userId != null) {
+            User user = userService.getLoginUserById(userId);
+            if (user != null) {
+                model.addAttribute("user", user);
+                model.addAttribute("userdataName", user.getUserdataName());
+
+                ArrayList<SelectedLectureList> selectedLectureLists = selectedLectureListRepository.findByUserId(userId);
+                log.info(selectedLectureLists.toString());
+                model.addAttribute("selectedLectureLists", selectedLectureLists);
+
+//                //공지사항 데이터 전달
+//                ArrayList<Notice> notices = noticeRepository.findAll();
+//                log.info(notices.toString());
+//                model.addAttribute("notices", notices);
+//
+//                //Q&A 데이터 전달
+//                ArrayList<QnA> qnas = qnARepository.findAll();
+//                log.info(qnas.toString());
+//                model.addAttribute("qnas", qnas);
+
+                return "classHome";
+            }
+        }
+        // userId가 없거나 사용자를 찾을 수 없는 경우 로그인 페이지로 리다이렉트
+        return "redirect:/visang_university/login";
+    }
 
 
-
-    @GetMapping("/enroll") // 수강신청 페이지가 열리면 등록된 강의 리스트를 불러온다.
-    public String enrollment(Model model){
-        // 1. url요청을 받으면 페이지에 강의에 대한 데이터 전달받음
+    @GetMapping("/enroll") //classHome 페이지에서 수강신청 누르면 수강신청 페이지로 이동
+    public String enrollment(Model model, @SessionAttribute(name = "userId", required = false) Long userId){
+        User loginUser = userService.getLoginUserById(userId);
+        if (loginUser != null){
+            model.addAttribute("loginUser", loginUser);
+        }
+        //lecture 테이블의 데이터를 화면에 뿌려줌.
         ArrayList<Lecture> lectureList = lectureRepository.findAll();
-
         model.addAttribute("lectureList", lectureList);
-
-        return "enrollment";
+        return "enrollment"; // 수강신청 페이지로 이동
     }
 
+    @PostMapping("/enroll/apply/{id}/{subid}") // 수강신청 컨트롤러 수강신청 페이지에서 수강신청 버튼을 누르면 신청한 유저의 아이디와 강의의 아이디가 DB에 저장.
+    public String applyLecture(@PathVariable("id") Long id, @PathVariable("subid") Long subid, SelectedLectureDto form){ //id자료형을 int에서 Student타입으로 바꾸고 레포지토리도 자료형을 Student로 바꿈
+        //enrollment(수강신청 페이지)에서 수강신청 버튼 누르면 학생의 id값과 선택한 과목의 subject_id값을 받아서 Dto로 보내줌.
+        form.setId(id);
+        form.setSubjectId(subid);
 
-    @GetMapping("/enroll/selectedList")
-    public String selectedList(Model model){ // 수강신청한 목록을 보여주는 메소드(기획서 7페이지)
-        ArrayList<SelectedLectureList> selectedLectureList = enrollmentRepository.findBySelectedLectures();
 
-        model.addAttribute("selectedLectureList", selectedLectureList);
+        SelectedLecture selectedLecture =form.toEntity();
+        selectedLectureRepository.save(selectedLecture);
+        //DB selected_lecture테이블에 id와 subject_id값 저장 후 리다이렉트
 
-        return "selectedlecturelist";
+        return "redirect:/visang_university/enroll/selectedLectureList" + '/' + id + '/' + subid;
+    } // Home 화면(classHome)으로 리다이렉트
+
+
+    @GetMapping("/enroll/selectedLectureList/{id}/{subid}")//enrollment 화면에서 수강신청 버튼을 누르면 강의 id와 유저 id를 받아서 해당 화면을 보여줌. 등록은 별도.
+    public String selectedList(Model model, @SessionAttribute(name = "userId", required = false) Long userId, @PathVariable("subid") int subid){ // 수강신청한 목록을 보여주는 메소드(기획서 7페이지)
+
+        ArrayList<SelectedLectureList> selectedLectureLists = selectedLectureListRepository.findByUserId(userId);
+        model.addAttribute("selectedLectureLists", selectedLectureLists);
+
+//        ArrayList<Notice> notices = noticeRepository.findAll();
+//        model.addAttribute("notices", notices);
+//
+//        ArrayList<QnA> qnas = qnARepository.findAll();
+//        model.addAttribute("qnas", qnas);
+
+        return "redirect:/visang_university/classHome";
     }
 
-    @GetMapping("/enroll/selectedList/{subjectId}")
-    public String SelectedDetail(@PathVariable String subjectId, Model model){ // 선택된 강의 목록에서 강의를 클릭하면 세부강의가 나온다(LectureDetails테이블에 해당하는 내용이다. 기획서 14페이지)
+    @Transactional
+    @PostMapping(value = "/enroll/delete/{subid}")
+    public String selLecdelete(@SessionAttribute(name = "userId", required = false) Long id, @PathVariable("subid") Long subjectId, Model model){
+        log.info(id.toString());
         log.info(subjectId.toString());
-        ArrayList<LectureDetail> lectureDetails = detailedLectureRepository.findBySubjectId(subjectId);
-        log.info(lectureDetails.toString());
-        model.addAttribute("lectureDetails", lectureDetails);
-        log.info("info log={}",lectureDetails.toString());
-
-        return "detailedLecture";
+        SelectedLecture target = selectedLectureRepository.findByIdAndSubjectId(id, subjectId);
+        log.info(target.toString());
+        if (target != null) {
+            log.info(target.toString());
+            selectedLectureRepository.delete(target);
+            return "redirect:/visang_university/classHome";
+        } else {
+            log.warn("삭제 대상이 존재하지 않습니다. id={} subjectId={}", id, subjectId);
+            return "redirect:/classHome";
+        }
     }
+
+
+
 
     @GetMapping("/enroll/lecPlan/{Id}") // 수강신청화면(기획서 11페이지) 강의 제목을 누르면 해당 강의의 상세 정보(기획서 12페이지)를 볼 수 있다.
     public String enrollLecturePlan(@PathVariable Long Id, Model model){ // Long을 String으로 바꿨음. lectureRepository수정하면서.
@@ -75,14 +147,6 @@ public class EnrollmentController {
         model.addAttribute("lecturePlan", lecturePlan);
 
         return "lecturePlan";
-    }
-
-    @PostMapping("/enroll/apply") // 수강신청 화면에서 신청 버튼을 누르면 신청한 유저의 아이디와 강의의 아이디가 DB에 저장.
-    public String applyLecture(){ //id자료형을 int에서 Student타입으로 바꾸고 레포지토리도 자료형을 Student로 바꿈
-
-
-
-        return "redirect:/enroll/selectedList";
     }
 
 }

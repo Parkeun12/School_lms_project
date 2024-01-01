@@ -1,0 +1,53 @@
+.enrollListContent{
+
+  width: 750px;
+  height: 800px;
+
+  border-bottom: none;
+  position: fixed;
+  left: 700px;
+  top: 200px;
+}
+
+.table_box{
+  border: 1px solid black;
+  width: 720px;
+  height: 450px;
+}
+table{
+  width: 720px;
+  border: 1px solid black;
+  border-spacing: 0;
+  border-collapse: collapse;
+
+
+}
+
+tr{
+  border: 1px solid black;
+  text-align: center;
+  margin: 0px;
+}
+th{
+  border: 1px solid black;
+  text-align: center;
+  background-color: rgb(192, 192, 192);
+  margin: 0px;
+  height: 50px;
+}
+td{
+  border: 1px solid rgb(12, 11, 11);
+  text-align: center;
+  margin: 0px;
+  height: 50px;
+}
+button{
+  border: none;
+  background-color: white;
+}
+
+.noticeQnA{
+  width: 720px;
+  height: 150px;
+  border: 1px solid black;
+}
