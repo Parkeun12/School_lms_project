@@ -188,17 +188,19 @@ public class HomeworkController {
             // 기존 제출 정보가 있는 경우 업데이트
             HomeworkSubmit submitToUpdate = existingSubmit.get();
             submitToUpdate.setHomeworkSubContent(homeworkSubmitForm.getHomeworkSubContent());
-            // 파일 업데이트를 위해 필요한 부분을 추가하세요
-             submitToUpdate.setHomeworkSubFile(homeworkSubmitForm.getHomeworkSubFile());
-            // 다른 필드 업데이트...
-
+            // 파일 업데이트를 위한 부분 추가
+            if (homeworkSubmitForm.getHomeworkSubFile() != null && !homeworkSubmitForm.getHomeworkSubFile().isEmpty()) {
+                // 새로운 파일이 업로드된 경우에만 업데이트
+                submitToUpdate.setHomeworkSubFile(homeworkSubmitForm.getHomeworkSubFile());
+            }
             homeworkSubmitRepository.save(submitToUpdate);
         } else {
             // 기존 제출 정보가 없는 경우 새로운 제출 정보 등록
             HomeworkSubmit homeworkSubmit = homeworkSubmitForm.toEntity();
             homeworkSubmit.setUser(loginUser);
             homeworkSubmit.setHomework(homework);
-            // 파일 정보를 저장하기 위한 부분을 추가하세요
+
+            // 파일 정보를 저장하기 위한 부분 추가
              homeworkSubmit.setHomeworkSubFile(homeworkSubmitForm.getHomeworkSubFile());
 
             homeworkSubmitRepository.save(homeworkSubmit);
