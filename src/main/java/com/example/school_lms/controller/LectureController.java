@@ -101,7 +101,7 @@ public class LectureController {
         // Lecture 저장
         lectureService.saveLecture(lecture);
 
-        return "redirect:/visang_university/lecture/regist";
+        return "redirect:/visang_university/classHome";
     }
 
 
