@@ -475,7 +475,7 @@ a{
 
                 <td><span th:if="${selectedList != null}" th:text="${selectedList.subjectClassification}"></span></td>
                 <td>
-                    <a th:href="@{/enroll/selectedList/{subjectId}(subjectId=${selectedList.subjectId})}">
+                    <a th:href="@{/lecture_detail(subjectId=${selectedList.subjectId})}">
                         <span th:if="${selectedList != null}" th:text="${selectedList.subjectName}" style="color: black;"></span>
                     </a>
                 </td>
